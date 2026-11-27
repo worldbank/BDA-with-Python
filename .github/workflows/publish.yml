@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: pages-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -29,10 +29,12 @@ jobs:
       - name: Render site
         run: quarto render
 
-      - name: Check for leaked local paths
+      - name: Check for leaked paths and sensitive data
         run: |
-          if grep -rl "/Users/" _site; then
-            echo "::error::Rendered site contains absolute local paths"
+          # class="nyasa-content" (not bare nyasa-content) matches scraped article markup but
+          # not the scraper's own selector code in wiki-pages.ipynb.
+          if grep -rlE '/Users/|hh_id=|cell_id|user_id=|class=\\?"nyasa-content' _site; then
+            echo "::error::Rendered site contains local paths or sensitive data (see files above)"
             exit 1
           fi
 
