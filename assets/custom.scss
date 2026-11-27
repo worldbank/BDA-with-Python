@@ -105,6 +105,18 @@ $border-radius: 0.5rem;
   margin: 0.15rem 0.25rem 0.15rem 0;
 }
 
+// Secondary buttons follow the body text colour so they stay readable in dark mode
+.nb-card .btn-outline-secondary {
+  color: var(--bs-body-color);
+  border-color: var(--bs-border-color);
+
+  &:hover {
+    color: var(--bs-body-bg);
+    background: var(--bs-body-color);
+    border-color: var(--bs-body-color);
+  }
+}
+
 // Keep buttons from turning into underlined links
 a.btn {
   text-decoration: none;

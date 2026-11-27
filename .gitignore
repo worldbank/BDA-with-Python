@@ -123,3 +123,6 @@ _site/
 # Course datasets live outside git (see data/README.md)
 data/*
 !data/README.md
+
+/.quarto/
+**/*.quarto_ipynb

@@ -111,9 +111,12 @@ website:
 
 format:
   html:
+    # The notebooks' markdown (like Jupyter's) starts lists without a blank line
+    from: markdown+lists_without_preceding_blankline
     theme:
       light: [cosmo, assets/brand-light.scss, assets/custom.scss]
       dark: [darkly, assets/custom.scss]
+    respect-user-color-scheme: true
     toc: true
     toc-depth: 3
     code-copy: true
