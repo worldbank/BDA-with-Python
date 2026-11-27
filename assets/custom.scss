@@ -3,44 +3,331 @@ $border-radius: 0.5rem;
 
 /*-- scss:rules --*/
 // Shared by the light and dark themes: colours come from Bootstrap's CSS
-// variables so cards follow whichever theme is active.
+// variables so everything follows whichever theme is active.
 
-// ---------------------------------------------------------------- home page
+// Accent for coloured text. The brand blue reads well on white, but is too
+// dark for text on the dark theme's background, so dark mode uses the link colour.
+:root {
+  --bda-accent: var(--bs-primary);
+}
+
+body.quarto-dark {
+  --bda-accent: var(--bs-link-color);
+}
+
+// ---------------------------------------------------------------- navbar
+// The logo SVG has a viewBox but no width/height, so give it an explicit size.
+.navbar-logo {
+  width: 32px;
+  height: 32px;
+  min-height: 0;
+  max-height: none;
+}
+
+// On phones, keep logo, title and the navbar icons on one row
+@media (max-width: 575.98px) {
+  .navbar-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.4em;
+  }
+
+  .navbar-title {
+    font-size: 1rem;
+  }
+}
+
+// ---------------------------------------------------------------- shared card look
+%bda-card {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius-lg, 0.75rem);
+  background: var(--bs-body-bg);
+}
+
+// ---------------------------------------------------------------- home: hero
 .hero {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  column-gap: 1.25rem;
+  align-items: start;
   font-size: 1.1rem;
   padding: 1.25rem 0 0.5rem;
   max-width: 52rem;
+
+  > p:first-child {
+    grid-row: span 2;
+    margin: 0.2rem 0 0;
+  }
 
   .btn {
     margin: 0.5rem 0.5rem 0 0;
   }
 }
 
-.module-grid,
-.nb-grid {
+// The dark theme's primary blue is too dark for an outline button's text
+body.quarto-dark .hero .btn-outline-primary {
+  color: var(--bda-accent);
+  border-color: var(--bda-accent);
+
+  &:hover {
+    color: var(--bs-body-bg);
+    background: var(--bda-accent);
+  }
+}
+
+.hero-logo {
+  width: 72px;
+  height: 72px;
+}
+
+@media (max-width: 575.98px) {
+  .hero {
+    grid-template-columns: 1fr;
+
+    > p:first-child {
+      grid-row: auto;
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  .hero-logo {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+// ---------------------------------------------------------------- home: stats
+.stats-strip {
   display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin: 1.75rem 0 2rem;
+}
+
+@media (max-width: 575.98px) {
+  .stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat {
+  @extend %bda-card;
+  padding: 0.85rem 0.75rem;
+  text-align: center;
+
+  p {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin: 0;
+  }
+}
+
+.stat-num {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--bda-accent);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--bs-secondary-color);
+}
+
+// ---------------------------------------------------------------- home: audience
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin: 1rem 0 1.5rem;
 }
 
-.module-grid {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+@media (max-width: 767.98px) {
+  .audience-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
+.audience-card {
+  @extend %bda-card;
+
+  h3 {
+    font-size: 1.05rem;
+    margin: 0 0 0.4rem;
+    border: none;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .anchorjs-link {
+    display: none;
+  }
+}
+
+// ---------------------------------------------------------------- home: module list
+.module-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+  margin: 1rem 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .module-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.module-row {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius, 0.5rem);
+  background: var(--bs-body-bg);
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-color: var(--bs-primary);
+  }
+
+  p {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    column-gap: 0.75rem;
+    align-items: center;
+    margin: 0;
+  }
+
+  .module-num {
+    grid-row: span 2;
+  }
+
+  a {
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 1.3;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.module-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--bs-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.module-desc {
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: var(--bs-secondary-color);
+}
+
+.module-row.coming-soon {
+  border-style: dashed;
+
+  .module-num {
+    background: var(--bs-secondary);
+  }
+
+  a {
+    color: var(--bs-secondary-color);
+  }
+}
+
+// ---------------------------------------------------------------- home: timeline
+.timeline {
+  position: relative;
+  margin: 1rem 0 2rem 0.4rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--bs-border-color);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // Dot on the line
+  &::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.5rem - 7px);
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bda-accent);
+    box-shadow: 0 0 0 3px var(--bs-body-bg);
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.timeline-year {
+  display: block;
+  font-weight: 700;
+  color: var(--bda-accent);
+}
+
+// ---------------------------------------------------------------- home: instructor
+.instructor-strip {
+  margin: 2rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--bs-border-color);
+
+  // Photo sits in the left gutter; the text stays one normal paragraph so
+  // it wraps naturally (a flex container would split it into pieces).
+  p {
+    position: relative;
+    min-height: 48px;
+    margin: 0;
+    padding-left: 60px;
+    padding-top: calc((48px - 1.5em) / 2);
+  }
+}
+
+.instructor-photo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+// ---------------------------------------------------------------- module pages
 .nb-grid {
+  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
 }
 
-.module-card,
 .nb-card {
+  @extend %bda-card;
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  padding: 1rem 1.1rem;
-  border: 1px solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius-lg, 0.75rem);
-  background: var(--bs-body-bg);
   transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 
   &:hover {
@@ -71,49 +358,21 @@ $border-radius: 0.5rem;
     margin-top: auto;
     padding-top: 0.5rem;
   }
-}
 
-.module-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background: var(--bs-primary);
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-.module-card.coming-soon {
-  border-style: dashed;
-
-  .module-num {
-    background: var(--bs-secondary);
+  .btn {
+    margin: 0.15rem 0.25rem 0.15rem 0;
   }
-}
 
-.module-time {
-  font-size: 0.8rem;
-  color: var(--bs-secondary-color);
-  margin-left: 0.25rem;
-}
+  // Secondary buttons follow the body text colour so they stay readable in dark mode
+  .btn-outline-secondary {
+    color: var(--bs-body-color);
+    border-color: var(--bs-border-color);
 
-// ---------------------------------------------------------------- module pages
-.nb-card .btn {
-  margin: 0.15rem 0.25rem 0.15rem 0;
-}
-
-// Secondary buttons follow the body text colour so they stay readable in dark mode
-.nb-card .btn-outline-secondary {
-  color: var(--bs-body-color);
-  border-color: var(--bs-border-color);
-
-  &:hover {
-    color: var(--bs-body-bg);
-    background: var(--bs-body-color);
-    border-color: var(--bs-body-color);
+    &:hover {
+      color: var(--bs-body-bg);
+      background: var(--bs-body-color);
+      border-color: var(--bs-body-color);
+    }
   }
 }
 

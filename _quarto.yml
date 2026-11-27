@@ -15,6 +15,11 @@ execute:
 
 website:
   title: "Big Data Analytics with Python"
+  favicon: assets/images/bda-logo.svg
+  # Used for link previews (social media, chat apps)
+  image: assets/images/bda-logo.png
+  open-graph: true
+  twitter-card: true
   site-url: https://worldbank.github.io/BDA-with-Python/
   repo-url: https://github.com/worldbank/BDA-with-Python
   repo-branch: main
@@ -26,6 +31,8 @@ website:
     type: overlay
 
   navbar:
+    logo: assets/images/bda-logo.svg
+    logo-alt: "Course logo"
     left:
       - text: Home
         href: index.qmd
