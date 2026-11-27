@@ -1,66 +1,263 @@
 ---
-title: "Software and environment setup"
+title: "Setup guide"
 aliases:
   - ../setup.html
 ---
 
-This page gets your computer ready for the course. Do it **before the first session**; the downloads are large and take a while on a slow connection.
+This guide gets your computer ready for the course, starting from nothing: you don't need to have
+used a terminal or installed Python before. Do it **before the first session**, because the
+downloads are large.
 
-| Step | What you install | Time |
-|---|---|---|
-| 1 | Python + conda (Miniforge) | 10 min |
-| 2 | The course environment (Python packages, Jupyter, **Java and PySpark**) | 10–20 min |
-| 3 | Check that everything works | 5 min |
-| Later (Module 4) | Hortonworks Hadoop Sandbox; see [Hadoop sandbox setup](hadoop-sandbox-setup.qmd) | 1–2 h |
+**What you'll install**, all in one place (a conda *environment* called `bda`):
 
-PySpark has its own page, [PySpark setup](pyspark-setup.qmd). It covers Java, testing Spark, and fixes for common errors. If you follow steps 1–3 on this page, PySpark is already installed; use that page to test it or if something goes wrong.
+- **Python**, the programming language used throughout the course
+- **Jupyter**, where you open and run the course notebooks
+- **Java 17**, which Spark needs to run
+- **PySpark**, Apache Spark for Python
+- **The course packages**: pandas, scikit-learn, requests, BeautifulSoup and the others the notebooks use
 
-::: {.callout-tip}
-## Can't install anything on your machine?
-Skip to [Option B (Docker)](pyspark-setup.qmd#option-b-docker) or [Option C (Google Colab)](pyspark-setup.qmd#option-c-google-colab) on the PySpark page.
+A single command in [Step 4](#step-4) installs all of them. You don't need to install Java or
+PySpark separately.
+
+## Choose your path
+
+::: {.nb-grid}
+::: {.nb-card}
+### New to Python
+You've never installed Python, or you're not sure. Follow every step, starting with Step 1.
+
+[Start at Step 1](#step-1){.btn .btn-sm .btn-primary}
+:::
+
+::: {.nb-card}
+### Already have Anaconda or Miniforge
+You already use conda. Check it works in Step 2, then continue from Step 3.
+
+[Go to Step 2](#step-2){.btn .btn-sm .btn-primary}
+:::
+
+::: {.nb-card}
+### Can't install software
+For example, a locked-down work laptop. Run the notebooks in your browser with Google Colab instead.
+
+[Use Google Colab](pyspark-setup.qmd#option-c-google-colab){.btn .btn-sm .btn-primary}
+:::
 :::
 
 ## Requirements
 
-- **OS:** Windows 10/11, macOS 12 or later, or Linux. On Windows, we strongly recommend [WSL2](https://learn.microsoft.com/windows/wsl/install) (Ubuntu); Spark runs much more smoothly there.
-- **RAM:** 8 GB minimum; 16 GB if you will run the Hadoop sandbox.
-- **Disk:** about 5 GB free for this page; more for the sandbox.
+- **Operating system:** Windows 10 or 11, macOS 12 or later, or Linux.
+- **Memory (RAM):** 8 GB minimum; 16 GB if you will run the Hadoop sandbox in Module 4.
+- **Disk space:** about 5 GB free, plus room for the datasets.
+- **Admin rights:** not needed. Miniforge and the course environment install into your own user
+  folder. You only need admin rights for the optional extras below (WSL2, the Hadoop sandbox).
+- **Internet:** a reasonable connection for the downloads (about 1–2 GB).
+
+::: {.callout-tip collapse="true"}
+## Windows users: WSL2 is optional
+Everything in this course works on normal Windows. If you're comfortable with Linux, you can instead
+use [WSL2](https://learn.microsoft.com/windows/wsl/install) (Ubuntu inside Windows, needs admin
+rights to install), where Spark runs a little more smoothly and writing files from Spark needs no
+[extra step](pyspark-setup.qmd#windows-winutils). If you do, follow the **Linux** instructions below
+inside your Ubuntu terminal.
+:::
+
+The Hadoop sandbox for Module 4 is a separate, larger install with its own
+[guide](hadoop-sandbox-setup.qmd). You don't need it to start the course.
 
 ---
 
-## Step 1: Install Python with Miniforge
+## Step 1: Open a terminal {#step-1}
 
-We use **conda** to manage Python and packages. We recommend **[Miniforge](https://conda-forge.org/download/)**, a small, free conda installer that uses the community `conda-forge` channel.
+A **terminal** is a window where you type commands instead of clicking. You'll use it for a few
+commands during setup, then mostly to start Jupyter.
+
+::: {.panel-tabset}
+## Windows
+You don't need a terminal yet: Miniforge, installed in Step 2, comes with its own terminal,
+**Miniforge Prompt**. After Step 2, open it from the **Start menu** (type "Miniforge Prompt").
+If you already have Anaconda, use **Anaconda Prompt** instead.
+
+Use Miniforge Prompt (or Anaconda Prompt) for every command in this guide, not the ordinary
+Command Prompt or PowerShell.
+
+## macOS
+Open **Terminal**: press **Cmd + Space**, type `Terminal`, and press **Enter**.
+
+## Linux
+Open your **Terminal** app from the applications menu, or press **Ctrl + Alt + T** on most
+distributions.
+:::
+
+### A two-minute terminal primer
+
+- **Where am I?** The terminal always works "inside" a folder. The prompt usually shows which one.
+- **Move into a folder** with `cd` ("change directory"). `cd bda` goes into the folder called
+  `bda`; `cd ..` goes up one folder:
+
+  ```bash
+  cd bda
+  ```
+
+- **List what's in the folder:** `ls` on macOS and Linux, `dir` on Windows.
+- **Copy and paste commands** from this page instead of typing them: use the copy button on each code
+  box. To paste into the terminal, press **Ctrl + V** (Windows), **Cmd + V** (macOS) or
+  **Ctrl + Shift + V** (Linux). Press **Enter** to run the command.
+- Where a step shows different commands for Windows and for macOS/Linux, run only the one for your
+  computer.
+- If a command is still running, wait until the prompt comes back before typing the next one.
+
+## Step 2: Install conda {#step-2}
+
+**conda** installs Python and packages and keeps each project's packages in a separate
+*environment*. We recommend **[Miniforge](https://conda-forge.org/download/)**, a small, free conda
+installer.
+
+::: {.callout-note}
+## Already have Anaconda or Miniforge?
+Anaconda is fine if it's already installed; you don't need Miniforge as well. Check that conda works
+by running `conda --version` in Anaconda Prompt (Windows) or Terminal (macOS/Linux). If it prints a
+version number, go to [Step 3](#step-3).
+:::
 
 ::: {.callout-note}
 ## Why Miniforge and not Anaconda?
 Anaconda Distribution is free for students at accredited universities, individuals, and organizations with fewer than 200 employees. If you work at a large organization (including government agencies and NGOs), using Anaconda may require a paid license. Miniforge is free for everyone, so it's the safe default. If you already have Anaconda, you can keep it; just use the `conda-forge` channel as shown below.
 :::
 
-1. Download the Miniforge installer for your OS from <https://conda-forge.org/download/>.
-2. Run it:
-   - **macOS / Linux / WSL2:** in a terminal, `bash Miniforge3-$(uname)-$(uname -m).sh` and accept the defaults. Answer **yes** when asked to initialize conda.
-   - **Windows (native):** run the `.exe` and accept the defaults. Afterwards, open **Miniforge Prompt** from the Start menu.
-3. Close and reopen the terminal, then check:
+::: {.panel-tabset}
+## Windows
+1. Go to <https://conda-forge.org/download/> and download the **Windows** installer
+   (`Miniforge3-Windows-x86_64.exe`).
+2. Double-click it and accept the defaults. Choose **Just Me** when asked; that doesn't need admin
+   rights.
+3. When it finishes, open **Miniforge Prompt** from the Start menu and check:
 
    ```bash
    conda --version
    ```
 
-## Step 2: Create the course environment
-
-The repo contains `environment.yml`, which lists everything the course needs, including Java 17 and PySpark.
+## macOS
+In Terminal, run these two commands one at a time. The first downloads the installer; the second
+runs it.
 
 ```bash
-git clone https://github.com/worldbank/BDA-with-Python.git
-cd BDA-with-Python
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+bash Miniforge3-$(uname)-$(uname -m).sh
+```
+
+Press **Enter** to scroll through the licence, type `yes` to accept it, press **Enter** to accept
+the install location, and answer **yes** when asked to initialize conda. Then **close Terminal and
+open it again**, and check:
+
+```bash
+conda --version
+```
+
+## Linux
+In a terminal, run:
+
+```bash
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+bash Miniforge3-$(uname)-$(uname -m).sh
+```
+
+Accept the licence and the default location, and answer **yes** when asked to initialize conda.
+Close the terminal, open a new one, and check:
+
+```bash
+conda --version
+```
+:::
+
+If `conda --version` prints something like `conda 25.x`, conda is installed.
+
+## Step 3: Get the course files {#step-3}
+
+::: {.panel-tabset}
+## Download ZIP (easiest)
+1. Download the course files:
+   [BDA-with-Python-main.zip](https://github.com/worldbank/BDA-with-Python/archive/refs/heads/main.zip).
+2. Unzip it. You get a folder called `BDA-with-Python-main`.
+3. Rename that folder to **`bda`** and move it somewhere with a short path and **no spaces**:
+   - **Windows:** `C:\bda`
+   - **macOS / Linux:** your home folder, so it becomes `~/bda`
+4. In your terminal, go into the folder.
+
+   Windows:
+
+   ```bash
+   cd C:\bda
+   ```
+
+   macOS / Linux:
+
+   ```bash
+   cd ~/bda
+   ```
+
+5. Check you're in the right place: `dir` (Windows) or `ls` (macOS/Linux) should list
+   `environment.yml`, `notebooks` and `README.md`.
+
+## git clone
+If you use git, clone the repository into a short path with no spaces, then go into it.
+
+Windows:
+
+```bash
+git clone https://github.com/worldbank/BDA-with-Python.git C:\bda
+cd C:\bda
+```
+
+macOS / Linux:
+
+```bash
+git clone https://github.com/worldbank/BDA-with-Python.git ~/bda
+cd ~/bda
+```
+
+With git you can get later updates to the course with `git pull`.
+:::
+
+::: {.callout-warning}
+## Avoid spaces and special characters in the path
+Spark and Java often fail on paths such as `C:\Users\Jean Dupont\Mes documents\cours`. Keep the
+course folder at `C:\bda` or `~/bda`.
+:::
+
+## Step 4: Create the course environment {#step-4}
+
+This step installs **Python, Jupyter, Java 17, PySpark and all the course packages** into one
+environment called `bda`, using the `environment.yml` file in the course folder. **You don't need
+to install Java or PySpark separately.** It takes **5–15 minutes**, depending on your connection.
+
+::: {.panel-tabset}
+## Terminal
+In your terminal, inside the course folder (Step 3), run:
+
+```bash
 conda env create -f environment.yml
+```
+
+Wait until the prompt comes back and you see a message about how to activate the environment.
+Then activate it:
+
+```bash
 conda activate bda
 ```
 
-No git? Download the repo as a ZIP from GitHub (**Code → Download ZIP**), unzip it, and run the last two commands inside the folder.
+The start of your prompt changes from `(base)` to `(bda)`.
 
-Every time you work on the course, first run `conda activate bda`.
+## Anaconda Navigator
+If you use Anaconda and prefer clicking:
+
+1. Open **Anaconda Navigator** and go to **Environments** (left menu).
+2. Click **Import** (bottom of the environment list).
+3. Under **Local drive**, select the `environment.yml` file in your course folder.
+4. Name the environment **`bda`** and click **Import**. Wait until it finishes.
+5. To start JupyterLab later, go to **Home**, choose **bda** in the "on" drop-down at the top, and
+   click **Launch** under JupyterLab.
+:::
 
 ::: {.callout-note collapse="true"}
 ## What's in `environment.yml`
@@ -94,46 +291,54 @@ dependencies:
 ```
 :::
 
-### Jupyter
+Need another package later? With the environment active, run
+`conda install -c conda-forge <package>`, or `pip install <package>` if it isn't on conda-forge.
 
-We use **JupyterLab** as the main working environment. Start it from the course folder:
+## Step 5: Check your setup {#step-5}
 
-```bash
-conda activate bda
-jupyter lab
-```
+1. In your terminal, with `(bda)` showing and inside the course folder, start JupyterLab:
 
-A browser tab opens. Open any notebook under `notebooks/`; the kernel should say **Python 3 (ipykernel)**. If you prefer VS Code, install the *Python* and *Jupyter* extensions and select the `bda` environment as the kernel.
+   ```bash
+   jupyter lab
+   ```
 
-### Extra packages
+   A browser tab opens. Keep the terminal open while you work; closing it stops Jupyter.
+2. In the file list on the left, open **`guides`** then **`check-setup.ipynb`**
+   ([view it on this site](check-setup.ipynb)).
+3. Check that the kernel name in the top right says **Python 3 (ipykernel)**.
+4. Choose **Run → Run All Cells**. Running everything takes a minute or two.
 
-Install anything else from inside the activated environment:
+Every check prints ✅ or ❌, and the last cell tells you whether you're ready. Each ❌ comes with a
+one-line fix.
 
-```bash
-conda activate bda
-conda install -c conda-forge <package>    # preferred
-pip install <package>                     # if it's not on conda-forge
-```
+Prefer VS Code? Install the *Python* and *Jupyter* extensions, open the course folder, open the
+notebook, and select the `bda` environment as the kernel.
 
-## Step 3: Check your setup
-
-With the environment active, run:
-
-```bash
-python -c "import pandas, sklearn, bs4, requests; print('Python packages OK')"
-java -version          # should report version 17
-python -c "import pyspark; print('PySpark', pyspark.__version__)"
-```
-
-Then run the full Spark test in [PySpark setup → Test your installation](pyspark-setup.qmd#test-your-installation).
-
-If all of these pass, you're ready for the course.
-
-## Step 4: Get the datasets
+## Step 6: Get the datasets {#step-6}
 
 The datasets are too large for the repository. The notebooks expect them in the `data/` folder at the root of the course repo (most of them in `data/raw/`). The [data README](https://github.com/worldbank/BDA-with-Python/blob/main/data/README.md) lists each file, where to get it, and which notebook uses it.
 
-## Getting help
+---
 
-- Check the troubleshooting section of [PySpark setup](pyspark-setup.qmd#troubleshooting).
-- Still stuck? Open an issue on the [course GitHub repo](https://github.com/worldbank/BDA-with-Python/issues) with your OS, the command you ran, and the full error message.
+::: {.callout-important}
+## Every time you work on the course
+Open your terminal (Miniforge Prompt or Anaconda Prompt on Windows) and run these three commands.
+On Windows, the second one is `cd C:\bda`.
+
+```bash
+conda activate bda
+cd ~/bda
+jupyter lab
+```
+:::
+
+## Something went wrong?
+
+- Most problems are about Java or PySpark. Find your error message in the
+  [troubleshooting table](pyspark-setup.qmd#troubleshooting).
+- `conda: command not found` (or "not recognized"): on Windows, use Miniforge Prompt or Anaconda
+  Prompt rather than Command Prompt; on macOS/Linux, close the terminal and open a new one after
+  installing.
+- Still stuck? Open an issue on the
+  [course GitHub repo](https://github.com/worldbank/BDA-with-Python/issues) with your operating
+  system, the command you ran and the full error message.
