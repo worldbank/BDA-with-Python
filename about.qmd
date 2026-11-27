@@ -10,7 +10,7 @@ about:
       text: GitHub
       href: https://github.com/dmatekenya
     - icon: envelope
-      text: Email
+      text: dmatekenya@worldbankgroup.org
       href: mailto:dmatekenya@worldbankgroup.org
     # - icon: linkedin
     #   text: LinkedIn
