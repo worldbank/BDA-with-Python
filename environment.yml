@@ -1,0 +1,25 @@
+name: bda
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - openjdk=17            # Java for Spark; sets JAVA_HOME when the env is activated
+  - pyspark>=4.0,<5
+  - jupyterlab
+  - notebook
+  - pandas
+  - numpy
+  - pyarrow
+  - matplotlib
+  - seaborn
+  - plotly
+  - scikit-learn
+  - requests
+  - beautifulsoup4
+  - nltk
+  - dask
+  - geopandas             # used by src/mob_data_utils.py
+  - pip
+  - pip:
+      - wikipedia
+      - pandas-datareader

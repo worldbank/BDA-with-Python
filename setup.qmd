@@ -84,6 +84,7 @@ dependencies:
   - beautifulsoup4
   - nltk
   - dask
+  - geopandas             # used by src/mob_data_utils.py
   - pip
   - pip:
       - wikipedia
