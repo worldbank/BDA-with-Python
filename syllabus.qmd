@@ -32,9 +32,9 @@ French slides / Diapositives en français: [Translated versions](https://worldba
 - **Some Python.** If you've mostly used SPSS or Stata, work through
   [Module 0](notebooks/00-intro-to-python/index.qmd) before the course starts.
 - **Basic command line use** (opening a terminal, running a command, changing folders) helps with setup.
-- **A laptop** that meets the requirements on the [Setup](setup.qmd) page.
+- **A laptop** that meets the requirements on the [Setup](guides/software-setup.qmd) page.
 
-Before the first session, set up your computer by following [Setup](setup.qmd).
+Before the first session, set up your computer by following [Setup](guides/software-setup.qmd).
 
 ## Schedule
 

@@ -1,0 +1,166 @@
+---
+title: "Contributing: adding a notebook to a module"
+sidebar: false
+---
+
+This guide shows how to add a notebook to a module of the course and open a pull request. The repo
+is **<https://github.com/worldbank/BDA-with-Python>** and the website is
+**<https://worldbank.github.io/BDA-with-Python/>**.
+
+The steps are the same for every module. As a worked example, they add an *Introduction to Python*
+notebook to **Module 0**, which is currently a placeholder page in `notebooks/00-intro-to-python/`.
+For another module, replace `00-intro-to-python` with that module's folder (for example
+`05-intro-to-spark`) and the file names with your own.
+
+---
+
+## Before you start
+
+- **Write access:** check that you can push branches to `worldbank/BDA-with-Python`. If you can't,
+  ask the course instructor for access; until then, fork the repo and open the pull request from
+  your fork.
+- **Course environment:** follow the [Setup guide](software-setup.qmd) to create the `bda` conda
+  environment. Write and run the notebook in that environment so it works for students.
+- **Quarto (optional):** install [Quarto](https://quarto.org/docs/get-started/) only if you want to
+  preview the website locally.
+
+## 1. Get the latest code and create a branch
+
+Use a short branch name that says what you're adding.
+
+```bash
+git clone https://github.com/worldbank/BDA-with-Python.git   # first time only
+cd BDA-with-Python
+git checkout main
+git pull
+git checkout -b add-intro-to-python
+```
+
+## 2. Add the notebook
+
+**Location and name:** `notebooks/00-intro-to-python/intro-to-python.ipynb`. Use lowercase with
+hyphens. If you split the material into several notebooks, give each a descriptive name in the same
+style, e.g. `python-basics.ipynb` and `pandas-basics.ipynb`.
+
+**Content (Module 0 example):** a refresher on the Python students need for the rest of the course:
+core syntax, data structures, functions, and working with data in pandas.
+
+**Follow these conventions** so the notebook matches the others in the course:
+
+1. **Cell 1 (markdown):** the title as a level-1 heading (`# Introduction to Python`), one or two
+   sentences on what the notebook is for, and a short "In this notebook you will learn" list.
+2. **Cell 2 (markdown):** the Open in Colab badge and a requirements line. Copy this, adjusting the
+   module folder and filename:
+
+   ```markdown
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/00-intro-to-python/intro-to-python.ipynb)
+   **Requirements:** Python 3 and pandas (included in the course environment).
+   ```
+
+3. **Section headings** in markdown (`##`) so the website builds a table of contents.
+4. **Kernel:** Python 3 from the `bda` environment.
+5. **Data:**
+   - Prefer data the notebook creates itself, or small public datasets loaded from a URL.
+   - If you need a file, use a relative path such as `../../data/raw/<file>`. Never use absolute
+     paths that point into your own computer, such as `C:\...` or a path inside your home folder.
+   - The `data/` folder isn't committed to git. Add a row for any new file to `data/README.md`,
+     saying where to download it.
+   - **Never include personal, confidential or restricted data**: no real survey or census
+     microdata, phone records or IDs, not even in printed outputs. The website build fails
+     automatically if it finds some of these.
+6. **Outputs:** before committing, run **Kernel → Restart Kernel and Run All Cells**. Outputs are
+   kept because the website shows them, but they must run in order with no errors, and long
+   printouts should be trimmed.
+
+## 3. Update the module page
+
+Edit the module's `index.qmd`, here `notebooks/00-intro-to-python/index.qmd`:
+
+1. **Delete** the "Notebooks coming soon" callout at the top, if there is one.
+2. **Add a card for your notebook** to the "Hands-on" section, using the same layout as the other
+   modules. Repeat the inner `nb-card` block for each notebook if you have more than one:
+
+   ```markdown
+   ## Hands-on
+
+   ::: {.nb-grid}
+   ::: {.nb-card}
+   ### Introduction to Python
+   Core syntax, data structures, functions and a first look at pandas.
+
+   [View](intro-to-python.ipynb){.btn .btn-sm .btn-primary}
+   [Open in Colab](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/00-intro-to-python/intro-to-python.ipynb){.btn .btn-sm .btn-outline-secondary}
+   [Download](https://github.com/worldbank/BDA-with-Python/raw/main/notebooks/00-intro-to-python/intro-to-python.ipynb){.btn .btn-sm .btn-outline-secondary}
+   :::
+   :::
+   ```
+
+3. **Module 0 only:** move the four external refresher links from the current "Hands-on" section
+   into "Further reading", and delete that section's TODO box.
+4. **Optional:** if you're happy to, fill in the "Learning objectives", "Before class" and
+   "Exercises" sections and remove their `TODO (instructor)` boxes. Otherwise leave them for the
+   instructor.
+
+## 4. Add the notebook to the sidebar
+
+In `_quarto.yml`, find the sidebar entry for the module. If it has no `contents:` list yet (as
+Module 0 doesn't), add one, the same way Modules 2–7 do:
+
+```yaml
+        - section: "0 · Introduction to Python"
+          href: notebooks/00-intro-to-python/index.qmd
+          contents:
+            - notebooks/00-intro-to-python/intro-to-python.ipynb
+```
+
+Indentation matters in YAML. Match the spacing of the Module 2 entry exactly.
+
+## 5. Check your work (optional, recommended)
+
+```bash
+quarto preview
+```
+
+Open the module in the browser preview and check that the notebook card, sidebar link and notebook
+page all appear. Then confirm there are no local paths:
+
+```bash
+grep -rnE "/(Users|home)/|C:\\\\Users" notebooks/00-intro-to-python
+```
+
+That command should print nothing.
+
+## 6. Commit, push and open a pull request
+
+```bash
+git add notebooks/00-intro-to-python _quarto.yml data/README.md
+git status                      # check that only your intended files are staged
+git commit -m "Add Introduction to Python notebook (Module 0)"
+git push -u origin add-intro-to-python
+```
+
+Then on GitHub:
+
+1. Open the repo. GitHub shows a **"Compare & pull request"** button for your branch; click it.
+2. Base branch: **`main`**.
+3. Title: say what you added, e.g. `Add Introduction to Python notebook (Module 0)`.
+4. Description: list the topics covered, any datasets added (and where to get them), and anything
+   you want the reviewer to look at.
+5. Request the course instructor as reviewer and click **Create pull request**.
+6. Wait for the **"Publish site"** check to pass (green tick). It builds the whole website and
+   checks for leaked paths or data. If it fails, click **Details** to see why, fix it on your
+   branch, and push again; the pull request updates automatically.
+
+**Please don't merge the pull request yourself.** The instructor reviews and merges it, and the
+website updates automatically a few minutes after the merge.
+
+## 7. After the merge: delete your branch
+
+Once the pull request is merged, delete the branch so the repo stays tidy: click **Delete branch**
+on the pull request page, then clean up your local copy:
+
+```bash
+git checkout main
+git pull
+git branch -d add-intro-to-python
+```

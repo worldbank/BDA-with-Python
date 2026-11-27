@@ -18,7 +18,7 @@ as part of the *MSc in Mathematical Sciences (Data Science stream)*.
 :::
 
 [Start with the syllabus](syllabus.qmd){.btn .btn-primary}
-[Set up your computer](setup.qmd){.btn .btn-outline-primary}
+[Set up your computer](guides/software-setup.qmd){.btn .btn-outline-primary}
 :::
 
 ## Who it's for
@@ -51,7 +51,7 @@ Python you need for the rest of the course.
 Work through the modules in order. For each module, read the lecture slides first, then work through
 the hands-on notebooks. French versions of the slides (*diapositives en français*) are in the
 [translated versions folder](https://worldbankgroup.sharepoint.com/:f:/r/teams/DECGlobal-WBGroup/Shared%20Documents/General/Exchange/1.%20Courses/1.3%20-%20on-site%20Learning%20Courses/FY2027%20Courses/ENSEA%20FY27%20Courses/Course%20n.%202%20-%20Big%20Data%20Analytics/Translated%20versions?csf=1&web=1). You can read every notebook on this site with its outputs, open it in Google
-Colab, or download it and run it locally after following [Setup](setup.qmd).
+Colab, or download it and run it locally after following [Setup](guides/software-setup.qmd).
 
 The course was designed to be taught in person, so the materials are not ideal for self-paced learning.
 Someone with reasonable prerequisite knowledge can still follow the course and grasp the concepts.

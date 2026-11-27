@@ -23,7 +23,7 @@ The Hadoop ecosystem: distributed storage with HDFS, resource management with YA
 
 ## Before class
 
-Set up the Hadoop sandbox before class: see [Hadoop sandbox setup](../../hadoop-sandbox-setup.qmd). The download is about 20 GB.
+Set up the Hadoop sandbox before class: see [Hadoop sandbox setup](../../guides/hadoop-sandbox-setup.qmd). The download is about 20 GB.
 
 ::: {.callout-warning appearance="minimal"}
 **TODO (instructor):** list prerequisites and readings.
