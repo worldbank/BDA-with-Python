@@ -2,65 +2,52 @@
 
 A practical course on working with large-scale datasets in Python: functional programming and
 parallelism, collecting data from the web, the Hadoop ecosystem, and data processing and machine
-learning with Apache Spark. It was taught at the African Institute for Mathematical Sciences (AIMS),
-Rwanda, as part of the MSc in Mathematical Sciences (Data Science stream). It is designed for
-public servants (economists, statisticians and data scientists in government) and data scientists
-who already know how to analyse data and want to learn the techniques for large-scale datasets.
+learning with Apache Spark. It is designed for public servants (economists, statisticians and data
+scientists in government) and for data scientists who already know how to analyse data and want to
+learn the techniques for large-scale datasets.
 
 ## Course website
 
-> **Participants: start at the course website, <https://worldbank.github.io/BDA-with-Python>.**
-> Everything you need to follow the course is there. This repository only holds the source files.
+### 👉 **<https://worldbank.github.io/BDA-with-Python>**
 
-| What you need | Where to find it |
-|---|---|
-| Syllabus, schedule and assessment | [Syllabus](https://worldbank.github.io/BDA-with-Python/syllabus.html) |
-| Module pages: overview, slides, notebooks, exercises | [Home page module grid](https://worldbank.github.io/BDA-with-Python/) (or the **Modules** menu on the site) |
-| Lecture slides (English) | Linked from each module page and from the syllabus |
-| Lecture slides (French / *version française*) | [Translated versions (SharePoint)](https://worldbankgroup.sharepoint.com/:f:/r/teams/DECGlobal-WBGroup/Shared%20Documents/General/Exchange/1.%20Courses/1.3%20-%20on-site%20Learning%20Courses/FY2027%20Courses/ENSEA%20FY27%20Courses/Course%20n.%202%20-%20Big%20Data%20Analytics/Translated%20versions?csf=1&web=1) |
-| Installing Python, Java and PySpark | [Software setup](https://worldbank.github.io/BDA-with-Python/setup.html) and [PySpark setup](https://worldbank.github.io/BDA-with-Python/pyspark-setup.html) |
-| Hadoop sandbox (Module 4) | [Hadoop sandbox setup](https://worldbank.github.io/BDA-with-Python/hadoop-sandbox-setup.html) |
-| Datasets used in the notebooks | [`data/README.md`](data/README.md): what each file is, which notebook uses it, and where to download it |
+**Participants: start at the website.** It's where you'll find:
 
-Each notebook on the website also has an **Open in Colab** button, so you can run it in the browser
-without installing anything.
+- the syllabus and schedule
+- a page for each module, with lecture slides (English and French), notebooks and exercises
+- step-by-step setup instructions for your computer
+- where to download the course datasets
 
-## Quick start
+This repository holds the source files for the website.
 
-To run the notebooks on your own machine:
+## Setting up your computer
+
+Follow the **[setup guide](https://worldbank.github.io/BDA-with-Python/guides/software-setup.html)**
+on the website. It starts from scratch (you don't need Python installed already), and a single step
+installs everything the course needs: **Python, Jupyter, Java and PySpark**. You don't need to
+install PySpark separately. The Hadoop sandbox for Module 4 has its own
+[guide](https://worldbank.github.io/BDA-with-Python/guides/hadoop-sandbox-setup.html).
+
+<details>
+<summary><b>Already use conda (Anaconda or Miniforge)?</b> Short version</summary>
 
 ```bash
 git clone https://github.com/worldbank/BDA-with-Python.git
 cd BDA-with-Python
-conda env create -f environment.yml
+conda env create -f environment.yml   # installs Python packages, Jupyter, Java 17 and PySpark
 conda activate bda
 jupyter lab
 ```
 
-Then download the datasets listed in [`data/README.md`](data/README.md) into the `data/` folder.
-If anything goes wrong (Java, PySpark, Windows), see the
-[setup guides](https://worldbank.github.io/BDA-with-Python/setup.html), which also
-cover Docker and Google Colab.
+Then open `guides/check-setup.ipynb` and run all cells to confirm everything, including Spark, works.
 
-## What's in this repository
-
-```
-notebooks/      one folder per module, 00-intro-to-python … 07-ml-with-spark (notebooks + module page)
-*.qmd          website pages: home, syllabus, setup guides, resources, about
-data/           datasets go here (not committed; see data/README.md)
-src/            shared Python helpers
-_quarto.yml     website configuration
-```
-
-The website is built from this repository with [Quarto](https://quarto.org) and published
-automatically when changes are merged into `main`. To preview it locally, install Quarto and run
-`quarto preview`.
+</details>
 
 ## Contributing
 
-Instructors and contributors: to add a notebook, put it in its module folder under `notebooks/`,
-add it to that module's `index.qmd` and to the sidebar in `_quarto.yml`, then open a pull request.
-The site is rebuilt when the pull request is merged.
+Instructors and contributors: see the
+[contributing guide](https://worldbank.github.io/BDA-with-Python/guides/contributing.html).
+The website is built with [Quarto](https://quarto.org) and published automatically when changes are
+merged into `main`.
 
 ## License
 
