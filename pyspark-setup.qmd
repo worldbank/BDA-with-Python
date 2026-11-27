@@ -1,0 +1,162 @@
+---
+title: "PySpark setup"
+---
+
+PySpark is the main big data processing framework in this course, so it must work on your machine before Module 5. This page covers installing it, testing it, and fixing the usual problems.
+
+**What PySpark needs:**
+
+| Component | Version | Notes |
+|---|---|---|
+| Python | 3.10 or later | The course environment uses 3.11 |
+| Java (JDK) | **17 or later** | PySpark 4 does not run on Java 8 or 11 |
+| PySpark | 4.x | Installed with conda or pip |
+
+::: {.callout-warning}
+## Java version matters
+The most common error in this course is the wrong Java version. PySpark 4 needs Java 17 or later, and `JAVA_HOME` must point to it. Older setup guides say "Java 7 or above"; that is no longer true.
+:::
+
+Choose **one** option:
+
+- **Option A — Local install (recommended).** Runs on your machine; works offline.
+- **Option B — Docker.** Nothing to configure; needs Docker Desktop.
+- **Option C — Google Colab.** Runs in the browser; needs internet; good as a backup.
+
+---
+
+## Option A: Local install {#option-a-local}
+
+### A1. The easy way: the course environment
+
+If you followed [Software setup](setup.qmd), you already have Java 17 and PySpark in the `bda` environment. Conda's `openjdk` package sets `JAVA_HOME` automatically whenever you run `conda activate bda`. Check:
+
+```bash
+conda activate bda
+java -version            # openjdk version "17..."
+echo $JAVA_HOME          # macOS/Linux/WSL2: a path inside your conda env
+echo %JAVA_HOME%         # Windows (Miniforge Prompt)
+```
+
+Then go to [Test your installation](#test-your-installation).
+
+### A2. Manual install (if you're not using the course environment)
+
+1. **Install Java 17.** Download the free **Eclipse Temurin JDK 17** for your OS from <https://adoptium.net/temurin/releases/?version=17> (no account needed) and run the installer.
+   - macOS alternative: `brew install --cask temurin@17`
+   - Ubuntu/WSL2 alternative: `sudo apt install openjdk-17-jdk`
+2. **Set `JAVA_HOME`** to the JDK folder.
+   - **macOS:** add `export JAVA_HOME=$(/usr/libexec/java_home -v 17)` to `~/.zshrc`, then open a new terminal.
+   - **Linux/WSL2:** add `export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64` (check the folder name with `ls /usr/lib/jvm`) to `~/.bashrc`.
+   - **Windows:** the Temurin installer has an option **"Set JAVA_HOME variable"**; tick it. Otherwise: Start → *Edit the system environment variables* → *Environment Variables* → *New* (System variables) → name `JAVA_HOME`, value e.g. `C:\Program Files\Eclipse Adoptium\jdk-17.x.x-hotspot`. Then edit `Path` and add `%JAVA_HOME%\bin`. Open a new terminal.
+3. **Install PySpark** in your Python environment:
+
+   ```bash
+   pip install "pyspark>=4.0,<5"
+   ```
+
+   If you use conda, prefer `conda install -c conda-forge pyspark` rather than mixing pip into a conda environment.
+
+### Windows: extra step for writing files {#windows-winutils}
+
+On native Windows (not WSL2), Spark can *read* files, but *writing* them (CSV, Parquet, saved models) fails with errors mentioning `HADOOP_HOME`, `winutils.exe` or `NativeIO`. Spark needs two Hadoop helper files on Windows. Either:
+
+- **Use WSL2 instead** (recommended; it avoids this entirely), or
+- Get `winutils.exe` and `hadoop.dll` for Hadoop 3 from the course Google Drive folder, put them in `C:\hadoop\bin`, set `HADOOP_HOME=C:\hadoop`, and add `%HADOOP_HOME%\bin` to `Path`.
+
+---
+
+## Option B: Docker {#option-b-docker}
+
+Install [Docker Desktop](https://www.docker.com/products/docker-desktop/), then from the course folder run:
+
+```bash
+docker run -it --rm -p 8888:8888 -p 4040:4040 \
+  -v "$PWD":/home/jovyan/work \
+  quay.io/jupyter/pyspark-notebook
+```
+
+Open the `http://127.0.0.1:8888/lab?token=...` link that's printed. Your course folder is under `work/`. Java and Spark are already set up inside the container.
+
+On Windows PowerShell, replace `"$PWD"` with `${PWD}` and the `\` line breaks with backticks, or put everything on one line.
+
+---
+
+## Option C: Google Colab {#option-c-google-colab}
+
+Open a notebook in [Colab](https://colab.research.google.com/) (each course notebook has an **Open in Colab** badge) and run in the first cell:
+
+```python
+!pip install -q "pyspark>=4.0,<5"
+```
+
+If Spark complains about the Java version, also run:
+
+```python
+!apt-get install -y -qq openjdk-17-jdk-headless > /dev/null
+import os
+os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-17-openjdk-amd64"
+```
+
+Colab sessions reset after inactivity, so you'll repeat this each time, and you'll need to upload datasets or mount Google Drive.
+
+---
+
+## Test your installation {#test-your-installation}
+
+Save this as `test_pyspark.py` (or paste it into a notebook cell) and run it with `python test_pyspark.py` from the activated environment:
+
+```python
+# ============================================================
+# Start a local Spark session
+# ============================================================
+from pyspark.sql import SparkSession
+import pyspark.sql.functions as F
+
+spark = (
+    SparkSession.builder
+    .master("local[*]")
+    .appName("bda-setup-test")
+    .getOrCreate()
+)
+print("Spark version:", spark.version)
+
+# ============================================================
+# Create a small DataFrame and run a transformation
+# ============================================================
+df = spark.createDataFrame(
+    [("Kigali", 1_745_555), ("Lilongwe", 1_122_000), ("Nairobi", 4_397_073)],
+    ["city", "population"],
+)
+df.withColumn("pop_millions", F.round(F.col("population") / 1e6, 2)).show()
+
+# ============================================================
+# Write to and read back from disk
+# ============================================================
+df.write.mode("overwrite").parquet("spark_test_output")
+print("Rows read back:", spark.read.parquet("spark_test_output").count())
+
+spark.stop()
+print("PySpark is working.")
+```
+
+**Success looks like:** a Spark version starting with `4.`, a 3-row table, `Rows read back: 3`, and `PySpark is working.` Some `WARN` lines (e.g. about native-hadoop libraries) are normal and can be ignored. You can delete the `spark_test_output` folder afterwards.
+
+While a Spark session is running, open <http://localhost:4040> to see the **Spark UI**; we use it in class.
+
+---
+
+## Troubleshooting {#troubleshooting}
+
+| Error message (or symptom) | Likely cause | Fix |
+|---|---|---|
+| `JAVA_HOME is not set` / `Java gateway process exited before sending its port number` | Java missing, or `JAVA_HOME` not set | Install Java 17 and set `JAVA_HOME` (A2), or use the course environment (A1). Open a new terminal. |
+| `UnsupportedClassVersionError` / `class file version 61.0` | Java too old (8 or 11) | Install Java 17 and point `JAVA_HOME` to it. Check with `java -version`. |
+| Works in a terminal but not in Jupyter | The notebook uses a different kernel/environment | In Jupyter, choose the kernel from the `bda` environment, or start `jupyter lab` *after* `conda activate bda`. |
+| Windows: `HADOOP_HOME and hadoop.home.dir are unset`, `winutils.exe`, `NativeIO$Windows` | Missing Hadoop helper files | See [Windows: extra step](#windows-winutils), or use WSL2. |
+| `Python worker failed to connect back` (Windows) | Spark picks a different Python | Set `PYSPARK_PYTHON=python` in your environment variables, or use WSL2. |
+| `Address already in use` / Spark UI on port 4041 | Another Spark session is still running | Run `spark.stop()` in the other notebook, or restart its kernel. |
+| `OutOfMemoryError: Java heap space` | Default driver memory is too small for the data | Add `.config("spark.driver.memory", "4g")` to the `SparkSession.builder`. |
+| Paths with spaces or non-English characters fail | Spark/Hadoop path handling | Keep the course folder in a simple path, e.g. `C:\bda` or `~/bda`. |
+
+Still stuck? Open an issue on the [course repo](https://github.com/worldbank/BDA-with-Python/issues) with your OS, `java -version` output, and the full error.

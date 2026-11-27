@@ -1,0 +1,57 @@
+---
+title: "Syllabus"
+sidebar: false
+---
+
+## Course outline
+
+This course is a practical guide to working with large-scale datasets. It introduces the ecosystem of
+technologies for data storage, data processing and building machine learning models, using Python as
+the programming language. The full course outline is in
+[this document](https://docs.google.com/document/d/1EqQWTEXl59Ap_saIe8scv4XRI4uISrAQ/edit?usp=sharing).
+
+| Module | Topic | Slides | Notebooks |
+|:--|:--|:--|:--|
+| 0 | [Introduction to Python](notebooks/00-intro-to-python/index.qmd) | — | Coming soon |
+| 1 | [Big Data Basics](notebooks/01-big-data-basics/index.qmd) | [Slides](https://docs.google.com/presentation/d/1MRItEdmQOM5M8erMHDxsgn7Q87UGnGoi/edit?usp=sharing) | — |
+| 2 | [Functional Programming & Parallelism](notebooks/02-functional-programming/index.qmd) | [Slides](https://docs.google.com/presentation/d/1MS06NU7eB8-H0PoPKy5o1mP9ipC3oaLQ/edit?usp=sharing) | 2 |
+| 3 | [Data from the Web](notebooks/03-data-from-the-web/index.qmd) | [Slides](https://docs.google.com/presentation/d/1NTs8EcxknabeTcgOWSua1ziwa6-RdrO_/edit?usp=sharing) | 3 |
+| 4 | [The Hadoop Ecosystem](notebooks/04-hadoop-ecosystem/index.qmd) | [Slides](https://docs.google.com/presentation/d/1NZcc_HqFo97nrgSZJL67_EIt4WAvd6pz/edit?usp=sharing) | — |
+| 5 | [Introduction to Apache Spark](notebooks/05-intro-to-spark/index.qmd) | [Slides](https://docs.google.com/presentation/d/1MMsVoKdh57BJuC7zOF1OR1VpjE8Jg3XL/edit?usp=sharing) | 2 |
+| 6 | [Spark Structured APIs](notebooks/06-spark-structured-apis/index.qmd) | [Slides](https://docs.google.com/presentation/d/1MOybfSeofcYoVW82oFiywLs1nulV_vPm/edit?usp=sharing) | 3 |
+| 7 | [Machine Learning with Spark](notebooks/07-ml-with-spark/index.qmd) | [Slides](https://docs.google.com/presentation/d/1NatQPcIn6MwhScUIrlOEfsG9UtfTnUlw/edit?usp=sharing) | 1 |
+
+## Prerequisites
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** list the prerequisites (Python level, statistics, command line, etc.).
+:::
+
+Before the first session, set up your computer by following [Setup](setup.qmd).
+
+## Schedule
+
+The schedule changes with each iteration of the course; the module pages do not.
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** fill in the schedule for the current iteration.
+:::
+
+| Week / day | Module | Slides | Notebooks | Due |
+|:--|:--|:--|:--|:--|
+| TODO | 0 · Introduction to Python | — | — | |
+| TODO | 1 · Big Data Basics | ✓ | — | |
+| TODO | 2 · Functional Programming & Parallelism | ✓ | 2 | |
+| TODO | 3 · Data from the Web | ✓ | 3 | |
+| TODO | 4 · The Hadoop Ecosystem | ✓ | — | |
+| TODO | 5 · Introduction to Apache Spark | ✓ | 2 | |
+| TODO | 6 · Spark Structured APIs | ✓ | 3 | |
+| TODO | 7 · Machine Learning with Spark | ✓ | 1 | |
+
+## Assessment
+
+Assessments and their solutions are shared with enrolled students only; they are not published here.
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** describe the assessment structure (components, weights, deadlines).
+:::

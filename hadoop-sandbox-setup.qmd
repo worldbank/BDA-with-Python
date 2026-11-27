@@ -1,0 +1,56 @@
+---
+title: "Hadoop sandbox setup (Module 4)"
+---
+
+For the Hadoop ecosystem module we use the **Hortonworks Sandbox with HDP 3.0**: a ready-made virtual machine with HDFS, YARN, Hive and Ambari already configured. You only need it for Module 4.
+
+::: {.callout-warning}
+## Check your hardware first
+- **CPU:** 64-bit **Intel or AMD** with virtualization (VT-x / AMD-V) enabled in the BIOS. The VirtualBox image **does not run on Apple Silicon Macs (M1/M2/M3/M4)**. If you have one, see [Alternatives](#alternatives).
+- **RAM:** 16 GB total recommended; the sandbox needs about 8–10 GB allocated to it.
+- **Disk:** the download is roughly 20 GB, and it needs more space once imported. Plan for at least 50 GB free.
+- **Download:** start the download well before the session; it's large.
+:::
+
+::: {.callout-note}
+HDP is no longer developed or supported (Hortonworks merged into Cloudera), and the official download pages are gone. We use it because it gives a complete Hadoop cluster in one file; use the copy on the course Google Drive.
+:::
+
+## Steps
+
+1. **Install Oracle VirtualBox.** Download the latest version for your OS from <https://www.virtualbox.org/wiki/Downloads> and install it.
+2. **Download the sandbox.** Get the HDP 3.0 sandbox (`.ova` file) from the [course Google Drive](https://drive.google.com/file/d/1G8ym79gvkK2nlgl8XEw8mpiwXDPTZrSb/view?usp=sharing) and save it to a local disk with enough free space.
+3. **Import and start the sandbox.** Follow [the deployment guide](https://drive.google.com/file/d/1M2MjmlXV_2-7mWc34M22CjUaMhnig9t3/view?usp=sharing). In short: in VirtualBox choose **File → Import Appliance**, select the `.ova` file, set memory to at least 8 GB, then **Start**. The first boot takes 10–20 minutes while services start.
+4. **Test the installation.** Use [the testing guide](https://drive.google.com/file/d/1wWiqja_s4StqWDDW8k1H75Po0nJdlt_8/view?usp=sharing) to run the checks.
+
+## Quick checks once it's running
+
+| What | Where |
+|---|---|
+| Welcome page | <http://localhost:1080> |
+| Ambari (cluster dashboard) | <http://localhost:8080>; log in as `maria_dev` / `maria_dev` |
+| Web shell | <http://localhost:4200> |
+| SSH | `ssh root@localhost -p 2222` (initial password `hadoop`; you'll be asked to change it) |
+
+In the shell, confirm HDFS works:
+
+```bash
+hdfs dfs -ls /
+hdfs dfs -mkdir -p /user/maria_dev/test
+hdfs dfs -ls /user/maria_dev
+```
+
+## Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| "VT-x is disabled in the BIOS" / VM won't start | Enable virtualization in BIOS/UEFI settings. On Windows, Hyper-V/WSL2 can conflict with VirtualBox; update VirtualBox to the latest version. |
+| Import fails or the file looks corrupted | Re-download; make sure the file size matches the one on Drive. |
+| Ambari shows services stopped / red | Wait — services take time on first boot. Then use **Actions → Start All** in Ambari. |
+| Very slow | Give the VM more RAM and CPUs (VM **Settings → System**), close other apps. |
+| Port already in use (8080, 2222, …) | Stop whatever else uses that port, or change the port forwarding in VM **Settings → Network → Advanced**. |
+
+## Alternatives {#alternatives}
+
+- **Docker image** (any OS with Docker Desktop): `hortonworks/sandbox-hdp:3.0.1` on Docker Hub. On Apple Silicon it must run under emulation (`--platform linux/amd64`), which is slow and may be unstable.
+- **Pair up:** if your machine can't run the sandbox, work with a classmate whose machine can.

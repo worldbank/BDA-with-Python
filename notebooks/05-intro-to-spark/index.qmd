@@ -1,0 +1,70 @@
+---
+title: "Module 5: Introduction to Apache Spark"
+---
+
+## Overview
+
+Apache Spark is the main processing framework in this course. This module runs a first Spark application, compares Spark with pandas on a large CSV file, and introduces Spark's language APIs, from low-level RDDs to DataFrames.
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** check this overview and add an estimated time for the module.
+:::
+
+## Learning objectives
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add 3–5 learning objectives.
+:::
+
+## Before class
+
+Make sure PySpark works on your machine: follow [Setup](../../setup.qmd) and run the test in [PySpark setup](../../pyspark-setup.qmd#test-your-installation).
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** list prerequisites and readings.
+:::
+
+## Lecture slides
+
+[Open the slides (Google Slides)](https://docs.google.com/presentation/d/1MMsVoKdh57BJuC7zOF1OR1VpjE8Jg3XL/edit?usp=sharing){.btn .btn-primary}
+
+## Hands-on
+
+::: {.callout-important}
+## Common error: Java version
+Spark notebooks fail with `UnsupportedClassVersionError` or `Java gateway process exited` when Java is
+missing or too old. PySpark 4 needs **Java 17 or later**. See
+[PySpark setup → Troubleshooting](../../pyspark-setup.qmd#troubleshooting).
+:::
+
+::: {.nb-grid}
+::: {.nb-card}
+### Hello Spark
+Build a `SparkSession`, read a large CSV, and compare running times with pandas.
+
+[View](hello-spark.ipynb){.btn .btn-sm .btn-primary}
+[Open in Colab](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/05-intro-to-spark/hello-spark.ipynb){.btn .btn-sm .btn-outline-secondary}
+[Download](https://github.com/worldbank/BDA-with-Python/raw/main/notebooks/05-intro-to-spark/hello-spark.ipynb){.btn .btn-sm .btn-outline-secondary}
+:::
+
+::: {.nb-card}
+### Spark APIs
+The RDD and DataFrame APIs, including a word-count example.
+
+[View](introducing-spark-apis.ipynb){.btn .btn-sm .btn-primary}
+[Open in Colab](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/05-intro-to-spark/introducing-spark-apis.ipynb){.btn .btn-sm .btn-outline-secondary}
+[Download](https://github.com/worldbank/BDA-with-Python/raw/main/notebooks/05-intro-to-spark/introducing-spark-apis.ipynb){.btn .btn-sm .btn-outline-secondary}
+:::
+:::
+
+## Exercises
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add exercises or check-your-understanding questions.
+:::
+
+## Further reading
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add further reading.
+:::

@@ -1,0 +1,58 @@
+name: Publish site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.11.9
+
+      # Notebook execution is disabled in _quarto.yml, so no Python, Spark or data is needed.
+      - name: Render site
+        run: quarto render
+
+      - name: Check for leaked paths and sensitive data
+        run: |
+          # class="nyasa-content" (not bare nyasa-content) matches scraped article markup but
+          # not the scraper's own selector code in wiki-pages.ipynb.
+          if grep -rlE '/Users/|hh_id=|cell_id|user_id=|class=\\?"nyasa-content' _site; then
+            echo "::error::Rendered site contains local paths or sensitive data (see files above)"
+            exit 1
+          fi
+
+      - uses: actions/configure-pages@v5
+        if: github.event_name != 'pull_request'
+
+      - uses: actions/upload-pages-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

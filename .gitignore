@@ -107,3 +107,22 @@ RESOURCES/
 DOCS/
 
 
+
+# macOS folder-icon artefacts
+Icon?
+
+# Spark checksum files and generated models (regenerate by running the notebooks)
+*.crc
+models/
+
+# Quarto build output
+_site/
+.quarto/
+/.ipynb_checkpoints
+
+# Course datasets live outside git (see data/README.md)
+data/*
+!data/README.md
+
+/.quarto/
+**/*.quarto_ipynb

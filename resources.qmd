@@ -1,0 +1,27 @@
+---
+title: "Resources"
+sidebar: false
+---
+
+## Course resources
+
+- [Course resources folder](https://drive.google.com/drive/folders/1-WMUVIQQWK-2CVAPIoJOgEkFQhfk-TMr?usp=sharing)
+  (Google Drive): books and articles used in the course.
+- [Lecture slides folder](https://drive.google.com/drive/folders/1-Kz1nb47LbpdI3mSYx0kod8xyOfd8GTM?usp=sharing)
+  (Google Drive). Each module page also links to its own slides.
+- [Software folder](https://drive.google.com/drive/folders/1zmI7UaStOhTSZlmWXaAaMrPixVzckyEx?usp=sharing)
+  (Google Drive): large installers, such as the Hadoop sandbox.
+
+## Official documentation
+
+- [Apache Spark documentation](https://spark.apache.org/docs/latest/)
+- [PySpark API reference](https://spark.apache.org/docs/latest/api/python/)
+- [Apache Hadoop documentation](https://hadoop.apache.org/docs/stable/)
+- [pandas user guide](https://pandas.pydata.org/docs/user_guide/)
+- [Python `multiprocessing`](https://docs.python.org/3/library/multiprocessing.html)
+
+## Further reading
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add recommended books and articles.
+:::

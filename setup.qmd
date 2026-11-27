@@ -1,0 +1,137 @@
+---
+title: "Software and environment setup"
+---
+
+This page gets your computer ready for the course. Do it **before the first session**; the downloads are large and take a while on a slow connection.
+
+| Step | What you install | Time |
+|---|---|---|
+| 1 | Python + conda (Miniforge) | 10 min |
+| 2 | The course environment (Python packages, Jupyter, **Java and PySpark**) | 10–20 min |
+| 3 | Check that everything works | 5 min |
+| Later (Module 4) | Hortonworks Hadoop Sandbox; see [Hadoop sandbox setup](hadoop-sandbox-setup.qmd) | 1–2 h |
+
+PySpark has its own page, [PySpark setup](pyspark-setup.qmd). It covers Java, testing Spark, and fixes for common errors. If you follow steps 1–3 on this page, PySpark is already installed; use that page to test it or if something goes wrong.
+
+::: {.callout-tip}
+## Can't install anything on your machine?
+Skip to [Option B (Docker)](pyspark-setup.qmd#option-b-docker) or [Option C (Google Colab)](pyspark-setup.qmd#option-c-google-colab) on the PySpark page.
+:::
+
+## Requirements
+
+- **OS:** Windows 10/11, macOS 12 or later, or Linux. On Windows, we strongly recommend [WSL2](https://learn.microsoft.com/windows/wsl/install) (Ubuntu); Spark runs much more smoothly there.
+- **RAM:** 8 GB minimum; 16 GB if you will run the Hadoop sandbox.
+- **Disk:** about 5 GB free for this page; more for the sandbox.
+
+---
+
+## Step 1: Install Python with Miniforge
+
+We use **conda** to manage Python and packages. We recommend **[Miniforge](https://conda-forge.org/download/)**, a small, free conda installer that uses the community `conda-forge` channel.
+
+::: {.callout-note}
+## Why Miniforge and not Anaconda?
+Anaconda Distribution is free for students at accredited universities, individuals, and organizations with fewer than 200 employees. If you work at a large organization (including government agencies and NGOs), using Anaconda may require a paid license. Miniforge is free for everyone, so it's the safe default. If you already have Anaconda, you can keep it; just use the `conda-forge` channel as shown below.
+:::
+
+1. Download the Miniforge installer for your OS from <https://conda-forge.org/download/>.
+2. Run it:
+   - **macOS / Linux / WSL2:** in a terminal, `bash Miniforge3-$(uname)-$(uname -m).sh` and accept the defaults. Answer **yes** when asked to initialize conda.
+   - **Windows (native):** run the `.exe` and accept the defaults. Afterwards, open **Miniforge Prompt** from the Start menu.
+3. Close and reopen the terminal, then check:
+
+   ```bash
+   conda --version
+   ```
+
+## Step 2: Create the course environment
+
+The repo contains `environment.yml`, which lists everything the course needs, including Java 17 and PySpark.
+
+```bash
+git clone https://github.com/worldbank/BDA-with-Python.git
+cd BDA-with-Python
+conda env create -f environment.yml
+conda activate bda
+```
+
+No git? Download the repo as a ZIP from GitHub (**Code → Download ZIP**), unzip it, and run the last two commands inside the folder.
+
+Every time you work on the course, first run `conda activate bda`.
+
+::: {.callout-note collapse="true"}
+## What's in `environment.yml`
+
+```yaml
+name: bda
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - openjdk=17            # Java for Spark; sets JAVA_HOME when the env is activated
+  - pyspark>=4.0,<5
+  - jupyterlab
+  - notebook
+  - pandas
+  - numpy
+  - pyarrow
+  - matplotlib
+  - seaborn
+  - plotly
+  - scikit-learn
+  - requests
+  - beautifulsoup4
+  - nltk
+  - dask
+  - geopandas             # used by src/mob_data_utils.py
+  - pip
+  - pip:
+      - wikipedia
+      - pandas-datareader
+```
+:::
+
+### Jupyter
+
+We use **JupyterLab** as the main working environment. Start it from the course folder:
+
+```bash
+conda activate bda
+jupyter lab
+```
+
+A browser tab opens. Open any notebook under `notebooks/`; the kernel should say **Python 3 (ipykernel)**. If you prefer VS Code, install the *Python* and *Jupyter* extensions and select the `bda` environment as the kernel.
+
+### Extra packages
+
+Install anything else from inside the activated environment:
+
+```bash
+conda activate bda
+conda install -c conda-forge <package>    # preferred
+pip install <package>                     # if it's not on conda-forge
+```
+
+## Step 3: Check your setup
+
+With the environment active, run:
+
+```bash
+python -c "import pandas, sklearn, bs4, requests; print('Python packages OK')"
+java -version          # should report version 17
+python -c "import pyspark; print('PySpark', pyspark.__version__)"
+```
+
+Then run the full Spark test in [PySpark setup → Test your installation](pyspark-setup.qmd#test-your-installation).
+
+If all of these pass, you're ready for the course.
+
+## Step 4: Get the datasets
+
+The datasets are too large for the repository. The notebooks expect them in the `data/` folder at the root of the course repo (most of them in `data/raw/`). The [data README](https://github.com/worldbank/BDA-with-Python/blob/main/data/README.md) lists each file, where to get it, and which notebook uses it.
+
+## Getting help
+
+- Check the troubleshooting section of [PySpark setup](pyspark-setup.qmd#troubleshooting).
+- Still stuck? Open an issue on the [course GitHub repo](https://github.com/worldbank/BDA-with-Python/issues) with your OS, the command you ran, and the full error message.

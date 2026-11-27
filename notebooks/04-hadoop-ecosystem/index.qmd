@@ -1,0 +1,52 @@
+---
+title: "Module 4: The Hadoop Ecosystem"
+---
+
+::: {.callout-note}
+## Notebooks coming soon
+The hands-on notebooks for this module are not available yet.
+:::
+
+## Overview
+
+The Hadoop ecosystem: distributed storage with HDFS, resource management with YARN, and the MapReduce programming model. Hands-on work uses the Hortonworks HDP sandbox.
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** check this overview and add an estimated time for the module.
+:::
+
+## Learning objectives
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add 3–5 learning objectives.
+:::
+
+## Before class
+
+Set up the Hadoop sandbox before class: see [Hadoop sandbox setup](../../hadoop-sandbox-setup.qmd). The download is about 20 GB.
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** list prerequisites and readings.
+:::
+
+## Lecture slides
+
+[Open the slides (Google Slides)](https://docs.google.com/presentation/d/1NZcc_HqFo97nrgSZJL67_EIt4WAvd6pz/edit?usp=sharing){.btn .btn-primary}
+
+## Hands-on
+
+**Scripts** (run from a terminal):
+
+- [`WordCount.java`](https://github.com/worldbank/BDA-with-Python/blob/main/notebooks/04-hadoop-ecosystem/WordCount.java): The classic MapReduce word-count example in Java.
+
+## Exercises
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add exercises or check-your-understanding questions.
+:::
+
+## Further reading
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add further reading.
+:::
