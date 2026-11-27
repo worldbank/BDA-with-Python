@@ -15,10 +15,11 @@ sidebar: false
 
 | Year | Where | Programme |
 |:--|:--|:--|
-| 2022 | African Institute for Mathematical Sciences (AIMS), Rwanda | MSc in Mathematical Sciences (Data Science stream) |
-| 2023 | African Institute for Mathematical Sciences (AIMS), Rwanda | MSc in Mathematical Sciences (Data Science stream) |
-
-For more about the programme, see the [AIMS website](https://aims.ac.rw/structured-masters-program/).
+| 2023 | AIMS Cameroon | MSc in Mathematical Sciences |
+| 2021–2024 | AIMS Rwanda | MSc in Mathematical Sciences (Data Science stream) |
+| 2019–2020 | AIMS Rwanda and AIMS Senegal | [Big Data for Development (BD4D) training programme](https://aims.ac.rw/application/big-data-for-development/) |
+| 2019 | [UN Statistical Institute for Asia and the Pacific (SIAP)](https://www.unsiap.or.jp/index.html), Chiba, Japan, with JICA | [Second Group Training Programme on Theory and Practices in Official Statistics for Monitoring the SDGs](https://www.unsiap.or.jp/event/2019-08-19.html) |
+| 2018 | [UN Statistical Institute for Asia and the Pacific (SIAP)](https://www.unsiap.or.jp/index.html), Chiba, Japan, with JICA | [Theory and Practices in Official Statistics for Monitoring the SDGs](https://www.unsiap.or.jp/event/2018-08-27.html) |
 
 ## Contact
 

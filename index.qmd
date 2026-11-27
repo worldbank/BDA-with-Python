@@ -9,13 +9,10 @@ page-layout: full
 ::: {.hero}
 This course introduces the ecosystem of technologies for working with large-scale datasets: data
 storage, data processing, and building machine learning models. It takes the most practical approach
-possible, using Python throughout. Its most recent iterations were taught at the
-[African Institute for Mathematical Sciences (AIMS), Rwanda](https://aims.ac.rw/structured-masters-program/)
-as part of the *MSc in Mathematical Sciences (Data Science stream)*.
-
-::: {.callout-warning appearance="minimal"}
-**TODO (instructor):** update the iteration years.
-:::
+possible, using Python throughout. Since 2018 it has been taught to official statisticians at the
+UN Statistical Institute for Asia and the Pacific (SIAP), in the AIMS Big Data for Development
+programme in Rwanda and Senegal, and in the AIMS MSc in Mathematical Sciences in Rwanda and Cameroon
+([past iterations](about.qmd#past-iterations)).
 
 [Start with the syllabus](syllabus.qmd){.btn .btn-primary}
 [Set up your computer](guides/software-setup.qmd){.btn .btn-outline-primary}
