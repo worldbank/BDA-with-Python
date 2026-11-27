@@ -6,6 +6,7 @@ project:
     - "notebooks/**/*.qmd"
     - "notebooks/**/*.ipynb"
     - "guides/*.qmd"
+    - "guides/contributing.md"
     - "guides/*.ipynb"
 
 # Notebooks are shown with their stored outputs; the build never runs code,
@@ -71,7 +72,7 @@ website:
       - text: About
         href: about.qmd
       - text: Contribute
-        href: guides/contributing.qmd
+        href: guides/contributing.md
     tools:
       - icon: github
         href: https://github.com/worldbank/BDA-with-Python
