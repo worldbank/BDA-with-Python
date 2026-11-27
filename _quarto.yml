@@ -106,6 +106,7 @@ website:
         - guides/software-setup.qmd
         - guides/pyspark-setup.qmd
         - guides/hadoop-sandbox-setup.qmd
+        - guides/check-setup.ipynb
 
   page-footer:
     left: "Content © Dunstan Matekenya, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Code [MIT](https://github.com/worldbank/BDA-with-Python/blob/main/LICENSE)."
