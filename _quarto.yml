@@ -13,7 +13,7 @@ execute:
 
 website:
   title: "Big Data Analytics with Python"
-  site-url: https://worldbank.github.io/BDA-with-Python
+  site-url: https://worldbank.github.io/BDA-with-Python/
   repo-url: https://github.com/worldbank/BDA-with-Python
   repo-branch: main
   repo-actions: [edit, issue]
