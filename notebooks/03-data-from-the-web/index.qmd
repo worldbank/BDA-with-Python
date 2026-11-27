@@ -25,6 +25,7 @@ Much of the data used in practice comes from the web. This module shows how to c
 ## Lecture slides
 
 [Open the slides (Google Slides)](https://docs.google.com/presentation/d/1NTs8EcxknabeTcgOWSua1ziwa6-RdrO_/edit?usp=sharing){.btn .btn-primary}
+[Version française](https://worldbankgroup.sharepoint.com/:f:/r/teams/DECGlobal-WBGroup/Shared%20Documents/General/Exchange/1.%20Courses/1.3%20-%20on-site%20Learning%20Courses/FY2027%20Courses/ENSEA%20FY27%20Courses/Course%20n.%202%20-%20Big%20Data%20Analytics/Translated%20versions?csf=1&web=1){.btn .btn-outline-primary}
 
 ## Hands-on
 

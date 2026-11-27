@@ -22,12 +22,8 @@ For more about the programme, see the [AIMS website](https://aims.ac.rw/structur
 
 ## Contact
 
-For questions about the course content:
-
-- dmatekenya@gmail.com
-- dmatekenya@worldbankgroup.org
-
-To report an error on this site, use the **Report an issue** link on any page, or open an issue on
+For questions about the course content, or to report an error on this site, use the
+**Report an issue** link on any page, or open an issue on
 [GitHub](https://github.com/worldbank/BDA-with-Python/issues).
 
 ## License
