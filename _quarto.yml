@@ -1,0 +1,121 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "notebooks/**/*.qmd"
+    - "notebooks/**/*.ipynb"
+
+# Notebooks are shown with their stored outputs; the build never runs code,
+# so it needs neither Spark nor the course datasets.
+execute:
+  enabled: false
+
+website:
+  title: "Big Data Analytics with Python"
+  site-url: https://worldbank.github.io/BDA-with-Python
+  repo-url: https://github.com/worldbank/BDA-with-Python
+  repo-branch: main
+  repo-actions: [edit, issue]
+  page-navigation: true
+  bread-crumbs: true
+  search:
+    location: navbar
+    type: overlay
+
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Syllabus
+        href: syllabus.qmd
+      - text: Modules
+        menu:
+          - text: "0 · Introduction to Python"
+            href: notebooks/00-intro-to-python/index.qmd
+          - text: "1 · Big Data Basics"
+            href: notebooks/01-big-data-basics/index.qmd
+          - text: "2 · Functional Programming & Parallelism"
+            href: notebooks/02-functional-programming/index.qmd
+          - text: "3 · Data from the Web"
+            href: notebooks/03-data-from-the-web/index.qmd
+          - text: "4 · The Hadoop Ecosystem"
+            href: notebooks/04-hadoop-ecosystem/index.qmd
+          - text: "5 · Introduction to Apache Spark"
+            href: notebooks/05-intro-to-spark/index.qmd
+          - text: "6 · Spark Structured APIs"
+            href: notebooks/06-spark-structured-apis/index.qmd
+          - text: "7 · Machine Learning with Spark"
+            href: notebooks/07-ml-with-spark/index.qmd
+      - text: Setup
+        href: setup.qmd
+      - text: Resources
+        href: resources.qmd
+      - text: About
+        href: about.qmd
+    tools:
+      - icon: github
+        href: https://github.com/worldbank/BDA-with-Python
+        aria-label: GitHub repository
+
+  sidebar:
+    - id: modules
+      title: Modules
+      style: docked
+      collapse-level: 1
+      contents:
+        - section: "0 · Introduction to Python"
+          href: notebooks/00-intro-to-python/index.qmd
+        - section: "1 · Big Data Basics"
+          href: notebooks/01-big-data-basics/index.qmd
+        - section: "2 · Functional Programming & Parallelism"
+          href: notebooks/02-functional-programming/index.qmd
+          contents:
+            - notebooks/02-functional-programming/functional-programming.ipynb
+            - notebooks/02-functional-programming/intro-to-parallelism-in-python.ipynb
+        - section: "3 · Data from the Web"
+          href: notebooks/03-data-from-the-web/index.qmd
+          contents:
+            - notebooks/03-data-from-the-web/intro-to-apis.ipynb
+            - notebooks/03-data-from-the-web/intro-to-web-scraping.ipynb
+            - notebooks/03-data-from-the-web/wiki-pages.ipynb
+        - section: "4 · The Hadoop Ecosystem"
+          href: notebooks/04-hadoop-ecosystem/index.qmd
+        - section: "5 · Introduction to Apache Spark"
+          href: notebooks/05-intro-to-spark/index.qmd
+          contents:
+            - notebooks/05-intro-to-spark/hello-spark.ipynb
+            - notebooks/05-intro-to-spark/introducing-spark-apis.ipynb
+        - section: "6 · Spark Structured APIs"
+          href: notebooks/06-spark-structured-apis/index.qmd
+          contents:
+            - notebooks/06-spark-structured-apis/dataset-description-hh-data.ipynb
+            - notebooks/06-spark-structured-apis/spark-structured-apis.ipynb
+            - notebooks/06-spark-structured-apis/working-with-spark-dataframes.ipynb
+        - section: "7 · Machine Learning with Spark"
+          href: notebooks/07-ml-with-spark/index.qmd
+          contents:
+            - notebooks/07-ml-with-spark/ml-with-large-datasets.ipynb
+
+    - id: setup
+      title: Setup
+      style: docked
+      contents:
+        - setup.qmd
+        - pyspark-setup.qmd
+        - hadoop-sandbox-setup.qmd
+
+  page-footer:
+    left: "Content © Dunstan Matekenya, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Code [MIT](https://github.com/worldbank/BDA-with-Python/blob/main/LICENSE)."
+    right: "Built with [Quarto](https://quarto.org)"
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    code-overflow: wrap
+    link-external-newwindow: true
