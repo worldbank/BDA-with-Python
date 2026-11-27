@@ -18,7 +18,7 @@ Data wrangling with Spark's structured APIs. The module describes the household 
 
 ## Before class
 
-Make sure PySpark works on your machine: follow [Setup](../../guides/software-setup.qmd) and run the test in [PySpark setup](../../guides/pyspark-setup.qmd#test-your-installation).
+Make sure PySpark works on your machine: follow the [Setup guide](../../guides/software-setup.qmd) and run the [check-setup notebook](../../guides/check-setup.ipynb).
 
 ::: {.callout-warning appearance="minimal"}
 **TODO (instructor):** list prerequisites and readings.
@@ -35,7 +35,7 @@ Make sure PySpark works on your machine: follow [Setup](../../guides/software-se
 ## Common error: Java version
 Spark notebooks fail with `UnsupportedClassVersionError` or `Java gateway process exited` when Java is
 missing or too old. PySpark 4 needs **Java 17 or later**. See
-[PySpark setup → Troubleshooting](../../guides/pyspark-setup.qmd#troubleshooting).
+[PySpark: test and troubleshoot → Troubleshooting](../../guides/pyspark-setup.qmd#troubleshooting).
 :::
 
 ::: {.nb-grid}

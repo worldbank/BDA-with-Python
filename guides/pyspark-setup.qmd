@@ -1,10 +1,14 @@
 ---
-title: "PySpark setup"
+title: "PySpark: test and troubleshoot"
 aliases:
   - ../pyspark-setup.html
 ---
 
-PySpark is the main big data processing framework in this course, so it must work on your machine before Module 5. This page covers installing it, testing it, and fixing the usual problems.
+::: {.callout-note}
+If you followed the [Setup guide](software-setup.qmd), PySpark and Java are already installed. Use this page to test them, fix problems, or use Docker/Colab instead.
+:::
+
+PySpark is the main big data processing framework in this course, so it must work on your machine before Module 5. The quickest test is the [check-setup notebook](check-setup.ipynb); the [test script](#test-your-installation) below checks the same things from a terminal.
 
 **What PySpark needs:**
 
@@ -31,18 +35,31 @@ Choose **one** option:
 
 ### A1. The easy way: the course environment
 
-If you followed [Software setup](software-setup.qmd), you already have Java 17 and PySpark in the `bda` environment. Conda's `openjdk` package sets `JAVA_HOME` automatically whenever you run `conda activate bda`. Check:
+If you followed the [Setup guide](software-setup.qmd), you already have Java 17 and PySpark in the `bda` environment. Conda's `openjdk` package sets `JAVA_HOME` automatically whenever you run `conda activate bda`. Check that `java -version` reports `openjdk version "17..."`, and that `JAVA_HOME` is a path inside your conda environment.
+
+macOS / Linux / WSL2:
 
 ```bash
 conda activate bda
-java -version            # openjdk version "17..."
-echo $JAVA_HOME          # macOS/Linux/WSL2: a path inside your conda env
-echo %JAVA_HOME%         # Windows (Miniforge Prompt)
+java -version
+echo $JAVA_HOME
+```
+
+Windows (Miniforge Prompt or Anaconda Prompt):
+
+```bash
+conda activate bda
+java -version
+echo %JAVA_HOME%
 ```
 
 Then go to [Test your installation](#test-your-installation).
 
-### A2. Manual install (if you're not using the course environment)
+### A2. Manual install (only if you're not using the course environment)
+
+::: {.callout-caution}
+Skip this section if you created the `bda` environment in the [Setup guide](software-setup.qmd): it already contains Java 17 and PySpark. Installing a second Java can make things worse.
+:::
 
 1. **Install Java 17.** Download the free **Eclipse Temurin JDK 17** for your OS from <https://adoptium.net/temurin/releases/?version=17> (no account needed) and run the installer.
    - macOS alternative: `brew install --cask temurin@17`
