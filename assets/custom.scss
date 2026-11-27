@@ -1,0 +1,111 @@
+/*-- scss:defaults --*/
+$border-radius: 0.5rem;
+
+/*-- scss:rules --*/
+// Shared by the light and dark themes: colours come from Bootstrap's CSS
+// variables so cards follow whichever theme is active.
+
+// ---------------------------------------------------------------- home page
+.hero {
+  font-size: 1.1rem;
+  padding: 1.25rem 0 0.5rem;
+  max-width: 52rem;
+
+  .btn {
+    margin: 0.5rem 0.5rem 0 0;
+  }
+}
+
+.module-grid,
+.nb-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.module-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+}
+
+.nb-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+}
+
+.module-card,
+.nb-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius-lg, 0.75rem);
+  background: var(--bs-body-bg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    margin: 0.25rem 0 0.25rem;
+    border: none;
+
+    a {
+      text-decoration: none;
+    }
+
+    .anchorjs-link {
+      display: none;
+    }
+  }
+
+  p {
+    margin-bottom: 0.25rem;
+  }
+
+  p:last-child {
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+}
+
+.module-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--bs-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.module-card.coming-soon {
+  border-style: dashed;
+
+  .module-num {
+    background: var(--bs-secondary);
+  }
+}
+
+.module-time {
+  font-size: 0.8rem;
+  color: var(--bs-secondary-color);
+  margin-left: 0.25rem;
+}
+
+// ---------------------------------------------------------------- module pages
+.nb-card .btn {
+  margin: 0.15rem 0.25rem 0.15rem 0;
+}
+
+// Keep buttons from turning into underlined links
+a.btn {
+  text-decoration: none;
+}

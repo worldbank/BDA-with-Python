@@ -112,8 +112,8 @@ website:
 format:
   html:
     theme:
-      light: cosmo
-      dark: darkly
+      light: [cosmo, assets/brand-light.scss, assets/custom.scss]
+      dark: [darkly, assets/custom.scss]
     toc: true
     toc-depth: 3
     code-copy: true
