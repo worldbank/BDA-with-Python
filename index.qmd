@@ -13,23 +13,44 @@ possible, using Python throughout. Its most recent iterations were taught at the
 [African Institute for Mathematical Sciences (AIMS), Rwanda](https://aims.ac.rw/structured-masters-program/)
 as part of the *MSc in Mathematical Sciences (Data Science stream)*.
 
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** update the iteration years.
+:::
+
 [Start with the syllabus](syllabus.qmd){.btn .btn-primary}
 [Set up your computer](setup.qmd){.btn .btn-outline-primary}
 :::
 
 ## Who it's for
 
-Students and practitioners who already write some Python and want to work with data that no longer
-fits comfortably on one machine. Module 0 is a Python refresher for anyone who needs one.
+The course is for people who already know how to analyse data and now need to do it at a scale
+where their usual tools struggle.
 
-::: {.callout-warning appearance="minimal"}
-**TODO (instructor):** confirm the audience and update the iteration years.
+It was originally designed for **public servants**: economists, statisticians and data scientists
+in national statistics offices, planning ministries and other government agencies. Many of them
+work mainly with tools such as SPSS or Stata and want to handle large datasets in Python, such as
+census microdata, administrative records and mobile phone data.
+
+It is equally suited to **data scientists and analysts** who are comfortable with Python and pandas
+on small to medium datasets, and want to learn what changes when the data no longer fits in memory
+or on a single machine.
+
+::: {.callout-note}
+## What this course is, and isn't
+This is **not** a course on how to do data analysis. We assume you already know how to clean,
+explore and model data. The course teaches the **techniques and tools for large and difficult
+datasets**: parallel processing, collecting data at scale from the web, distributed storage with
+Hadoop, and distributed processing and machine learning with Apache Spark.
 :::
+
+New to Python? Start with [Module 0](notebooks/00-intro-to-python/index.qmd), a refresher on the
+Python you need for the rest of the course.
 
 ## How to use these materials
 
 Work through the modules in order. For each module, read the lecture slides first, then work through
-the hands-on notebooks. You can read every notebook on this site with its outputs, open it in Google
+the hands-on notebooks. French versions of the slides (*diapositives en français*) are in the
+[translated versions folder](https://worldbankgroup.sharepoint.com/:f:/r/teams/DECGlobal-WBGroup/Shared%20Documents/General/Exchange/1.%20Courses/1.3%20-%20on-site%20Learning%20Courses/FY2027%20Courses/ENSEA%20FY27%20Courses/Course%20n.%202%20-%20Big%20Data%20Analytics/Translated%20versions?csf=1&web=1). You can read every notebook on this site with its outputs, open it in Google
 Colab, or download it and run it locally after following [Setup](setup.qmd).
 
 The course was designed to be taught in person, so the materials are not ideal for self-paced learning.

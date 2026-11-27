@@ -10,6 +10,10 @@ technologies for data storage, data processing and building machine learning mod
 the programming language. The full course outline is in
 [this document](https://docs.google.com/document/d/1EqQWTEXl59Ap_saIe8scv4XRI4uISrAQ/edit?usp=sharing).
 
+::: {.callout-note}
+French slides / Diapositives en français: [Translated versions](https://worldbankgroup.sharepoint.com/:f:/r/teams/DECGlobal-WBGroup/Shared%20Documents/General/Exchange/1.%20Courses/1.3%20-%20on-site%20Learning%20Courses/FY2027%20Courses/ENSEA%20FY27%20Courses/Course%20n.%202%20-%20Big%20Data%20Analytics/Translated%20versions?csf=1&web=1)
+:::
+
 | Module | Topic | Slides | Notebooks |
 |:--|:--|:--|:--|
 | 0 | [Introduction to Python](notebooks/00-intro-to-python/index.qmd) | — | Coming soon |
@@ -23,9 +27,12 @@ the programming language. The full course outline is in
 
 ## Prerequisites
 
-::: {.callout-warning appearance="minimal"}
-**TODO (instructor):** list the prerequisites (Python level, statistics, command line, etc.).
-:::
+- **Data analysis experience** in any tool (SPSS, Stata, R, Excel or Python): you know how to
+  clean, summarise and model a dataset.
+- **Some Python.** If you've mostly used SPSS or Stata, work through
+  [Module 0](notebooks/00-intro-to-python/index.qmd) before the course starts.
+- **Basic command line use** (opening a terminal, running a command, changing folders) helps with setup.
+- **A laptop** that meets the requirements on the [Setup](setup.qmd) page.
 
 Before the first session, set up your computer by following [Setup](setup.qmd).
 
