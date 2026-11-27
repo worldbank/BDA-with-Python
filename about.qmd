@@ -46,17 +46,7 @@ statistical programmes and led the Geographic Information Systems (GIS) Unit.
   Data in Health project, a collaboration between the World Bank and the African Development Bank (AfDB).
 - **2023 · Malawi:** Large language models (LLMs) course for ICT professionals.
 - **2018–present:** *Big Data Analytics with Python* (this course), at SIAP (Japan) and AIMS
-  (Rwanda, Senegal and Cameroon). See [Past iterations](#past-iterations).
-
-## Past iterations
-
-| Year | Where | Programme |
-|:--|:--|:--|
-| 2023 | AIMS Cameroon | MSc in Mathematical Sciences |
-| 2021–2024 | AIMS Rwanda | MSc in Mathematical Sciences (Data Science stream) |
-| 2019–2020 | AIMS Rwanda and AIMS Senegal | [Big Data for Development (BD4D) training programme](https://aims.ac.rw/application/big-data-for-development/) |
-| 2019 | [UN Statistical Institute for Asia and the Pacific (SIAP)](https://www.unsiap.or.jp/index.html), Chiba, Japan, with JICA | [Second Group Training Programme on Theory and Practices in Official Statistics for Monitoring the SDGs](https://www.unsiap.or.jp/event/2019-08-19.html) |
-| 2018 | [UN Statistical Institute for Asia and the Pacific (SIAP)](https://www.unsiap.or.jp/index.html), Chiba, Japan, with JICA | [Theory and Practices in Official Statistics for Monitoring the SDGs](https://www.unsiap.or.jp/event/2018-08-27.html) |
+  (Rwanda, Senegal and Cameroon). See [Past iterations](index.qmd#past-iterations).
 
 ## Contact
 

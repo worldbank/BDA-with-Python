@@ -36,6 +36,12 @@ French slides / Diapositives en français: [Translated versions](https://worldba
 
 Before the first session, set up your computer by following [Setup](guides/software-setup.qmd).
 
+## How to use these materials
+
+Work through the modules in order. For each module, read the lecture slides first, then work
+through the hands-on notebooks. The course was designed to be taught in person, but someone with the
+[prerequisites](#prerequisites) can follow it on their own.
+
 ## Schedule
 
 The schedule changes with each iteration of the course; the module pages do not.
