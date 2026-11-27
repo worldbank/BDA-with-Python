@@ -1,5 +1,7 @@
 ---
 title: "Software and environment setup"
+aliases:
+  - ../setup.html
 ---
 
 This page gets your computer ready for the course. Do it **before the first session**; the downloads are large and take a while on a slow connection.

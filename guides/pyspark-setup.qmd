@@ -1,5 +1,7 @@
 ---
 title: "PySpark setup"
+aliases:
+  - ../pyspark-setup.html
 ---
 
 PySpark is the main big data processing framework in this course, so it must work on your machine before Module 5. This page covers installing it, testing it, and fixing the usual problems.
@@ -29,7 +31,7 @@ Choose **one** option:
 
 ### A1. The easy way: the course environment
 
-If you followed [Software setup](setup.qmd), you already have Java 17 and PySpark in the `bda` environment. Conda's `openjdk` package sets `JAVA_HOME` automatically whenever you run `conda activate bda`. Check:
+If you followed [Software setup](software-setup.qmd), you already have Java 17 and PySpark in the `bda` environment. Conda's `openjdk` package sets `JAVA_HOME` automatically whenever you run `conda activate bda`. Check:
 
 ```bash
 conda activate bda

@@ -1,5 +1,7 @@
 ---
 title: "Hadoop sandbox setup (Module 4)"
+aliases:
+  - ../hadoop-sandbox-setup.html
 ---
 
 For the Hadoop ecosystem module we use the **Hortonworks Sandbox with HDP 3.0**: a ready-made virtual machine with HDFS, YARN, Hive and Ambari already configured. You only need it for Module 4.

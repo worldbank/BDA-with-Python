@@ -5,6 +5,8 @@ project:
     - "*.qmd"
     - "notebooks/**/*.qmd"
     - "notebooks/**/*.ipynb"
+    - "guides/*.qmd"
+    - "guides/*.ipynb"
 
 # Notebooks are shown with their stored outputs; the build never runs code,
 # so it needs neither Spark nor the course datasets.
@@ -48,7 +50,7 @@ website:
           - text: "7 · Machine Learning with Spark"
             href: notebooks/07-ml-with-spark/index.qmd
       - text: Setup
-        href: setup.qmd
+        href: guides/software-setup.qmd
       - text: Resources
         href: resources.qmd
       - text: About
@@ -101,9 +103,9 @@ website:
       title: Setup
       style: docked
       contents:
-        - setup.qmd
-        - pyspark-setup.qmd
-        - hadoop-sandbox-setup.qmd
+        - guides/software-setup.qmd
+        - guides/pyspark-setup.qmd
+        - guides/hadoop-sandbox-setup.qmd
 
   page-footer:
     left: "Content © Dunstan Matekenya, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Code [MIT](https://github.com/worldbank/BDA-with-Python/blob/main/LICENSE)."

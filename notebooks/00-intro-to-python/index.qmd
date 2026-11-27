@@ -23,7 +23,7 @@ A refresher on the Python you need for the rest of the course: core syntax, data
 
 ## Before class
 
-Install the course environment by following [Setup](../../setup.qmd).
+Install the course environment by following [Setup](../../guides/software-setup.qmd).
 
 ::: {.callout-warning appearance="minimal"}
 **TODO (instructor):** list prerequisites and readings.
