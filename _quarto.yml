@@ -50,11 +50,21 @@ website:
           - text: "7 · Machine Learning with Spark"
             href: notebooks/07-ml-with-spark/index.qmd
       - text: Setup
-        href: guides/software-setup.qmd
+        menu:
+          - text: Setup guide
+            href: guides/software-setup.qmd
+          - text: "PySpark: test and troubleshoot"
+            href: guides/pyspark-setup.qmd
+          - text: Hadoop sandbox (Module 4)
+            href: guides/hadoop-sandbox-setup.qmd
+          - text: Check your setup (notebook)
+            href: guides/check-setup.ipynb
       - text: Resources
         href: resources.qmd
       - text: About
         href: about.qmd
+      - text: Contribute
+        href: guides/contributing.qmd
     tools:
       - icon: github
         href: https://github.com/worldbank/BDA-with-Python
