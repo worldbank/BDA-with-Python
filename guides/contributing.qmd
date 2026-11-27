@@ -62,7 +62,7 @@ core syntax, data structures, functions, and working with data in pandas.
 5. **Data:**
    - Prefer data the notebook creates itself, or small public datasets loaded from a URL.
    - If you need a file, use a relative path such as `../../data/raw/<file>`. Never use absolute
-     paths like `/Users/...` or `C:\...`.
+     paths that point into your own computer, such as `C:\...` or a path inside your home folder.
    - The `data/` folder isn't committed to git. Add a row for any new file to `data/README.md`,
      saying where to download it.
    - **Never include personal, confidential or restricted data**: no real survey or census
@@ -125,7 +125,7 @@ Open the module in the browser preview and check that the notebook card, sidebar
 page all appear. Then confirm there are no local paths:
 
 ```bash
-grep -rn "/Users/\|C:\\\\Users" notebooks/00-intro-to-python
+grep -rnE "/(Users|home)/|C:\\\\Users" notebooks/00-intro-to-python
 ```
 
 That command should print nothing.
