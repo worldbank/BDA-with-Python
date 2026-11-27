@@ -1,15 +1,52 @@
 ---
 title: "About"
 sidebar: false
+image: assets/images/dunstan-matekenya.jpg
+about:
+  template: trestles
+  image-shape: round
+  links:
+    - icon: github
+      text: GitHub
+      href: https://github.com/dmatekenya
+    - icon: envelope
+      text: Email
+      href: mailto:dmatekenya@worldbankgroup.org
+    # - icon: linkedin
+    #   text: LinkedIn
+    #   href: https://www.linkedin.com/in/<profile>
 ---
 
 ## Instructor
 
-**Dunstan Matekenya**
+**Dr. Dunstan Matekenya**
 
-::: {.callout-warning appearance="minimal"}
-**TODO (instructor):** add a short bio.
-:::
+Dr. Dunstan Matekenya is a Data Scientist at the World Bank Group with over 15 years of experience
+applying data science to a wide range of development challenges. His work spans geospatial data,
+mobile phone data, machine learning, artificial intelligence and official statistics, supporting
+evidence-based decision making across multiple sectors and countries. More recently, his work has
+focused on adapting and advancing AI technologies for low-resource African languages, including
+leading initiatives in Malawi to develop automatic speech recognition (ASR) and machine translation
+systems for Chichewa.
+
+Teaching and capacity building are a central part of his work. He has extensive experience teaching
+data science, machine learning and AI to public servants, researchers, students and practitioners
+in Asia, through the UN Statistical Institute for Asia and the Pacific (SIAP), and across Africa,
+including Malawi, Rwanda, Senegal, Cameroon and Tunisia. Before joining the World Bank, he was a
+Statistician at the National Statistical Office of Malawi, where he contributed to major national
+statistical programmes and led the Geographic Information Systems (GIS) Unit.
+
+### Recent teaching
+
+- **2025 · Rwanda:** Applied data analytics with Python for 60 public servants from institutions
+  in Rwanda's National Statistical System, as part of the
+  [Data Science Capacity Building Initiative (DSCBI)](https://dmatekenya.github.io/AIMS-DSCBI/)
+  with AIMS.
+- **2024 · Tunisia:** Generative AI course for participants from 12 African countries, part of the
+  Data in Health project, a collaboration between the World Bank and the African Development Bank (AfDB).
+- **2023 · Malawi:** Large language models (LLMs) course for ICT professionals.
+- **2018–present:** *Big Data Analytics with Python* (this course), at SIAP (Japan) and AIMS
+  (Rwanda, Senegal and Cameroon). See [Past iterations](#past-iterations).
 
 ## Past iterations
 
