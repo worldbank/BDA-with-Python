@@ -3,5 +3,46 @@ title: "Module 1: Big Data Basics"
 ---
 
 ::: {.callout-note}
+## Notebooks coming soon
+The hands-on notebooks for this module are not available yet.
+:::
+
+## Overview
+
+What makes data "big", and the landscape of technologies for storing, processing and modelling large datasets that the rest of the course works through.
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** check this overview and add an estimated time for the module.
+:::
+
+## Learning objectives
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add 3–5 learning objectives.
+:::
+
+## Before class
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** list prerequisites and readings.
+:::
+
+## Lecture slides
+
+[Open the slides (Google Slides)](https://docs.google.com/presentation/d/1MRItEdmQOM5M8erMHDxsgn7Q87UGnGoi/edit?usp=sharing){.btn .btn-primary}
+
+## Hands-on
+
 Notebooks coming soon.
+
+## Exercises
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add exercises or check-your-understanding questions.
+:::
+
+## Further reading
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add further reading.
 :::

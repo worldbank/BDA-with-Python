@@ -119,3 +119,7 @@ models/
 _site/
 .quarto/
 /.ipynb_checkpoints
+
+# Course datasets live outside git (see data/README.md)
+data/*
+!data/README.md

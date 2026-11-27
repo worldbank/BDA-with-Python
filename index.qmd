@@ -1,0 +1,114 @@
+---
+title: "Big Data Analytics with Python"
+subtitle: "A practical guide to working with large-scale datasets in Python"
+sidebar: false
+toc: false
+page-layout: full
+---
+
+::: {.hero}
+This course introduces the ecosystem of technologies for working with large-scale datasets: data
+storage, data processing, and building machine learning models. It takes the most practical approach
+possible, using Python throughout. Its most recent iterations were taught at the
+[African Institute for Mathematical Sciences (AIMS), Rwanda](https://aims.ac.rw/structured-masters-program/)
+as part of the *MSc in Mathematical Sciences (Data Science stream)*.
+
+[Start with the syllabus](syllabus.qmd){.btn .btn-primary}
+[Set up your computer](setup.qmd){.btn .btn-outline-primary}
+:::
+
+## Who it's for
+
+Students and practitioners who already write some Python and want to work with data that no longer
+fits comfortably on one machine. Module 0 is a Python refresher for anyone who needs one.
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** confirm the audience and update the iteration years.
+:::
+
+## How to use these materials
+
+Work through the modules in order. For each module, read the lecture slides first, then work through
+the hands-on notebooks. You can read every notebook on this site with its outputs, open it in Google
+Colab, or download it and run it locally after following [Setup](setup.qmd).
+
+The course was designed to be taught in person, so the materials are not ideal for self-paced learning.
+Someone with reasonable prerequisite knowledge can still follow the course and grasp the concepts.
+
+## Modules
+
+::: {.module-grid}
+
+::: {.module-card .coming-soon}
+[0]{.module-num}
+
+### [Introduction to Python](notebooks/00-intro-to-python/index.qmd)
+Core Python and pandas you need for the rest of the course.
+
+[Coming soon]{.badge .text-bg-secondary} [⏱ TODO]{.module-time}
+:::
+
+::: {.module-card}
+[1]{.module-num}
+
+### [Big Data Basics](notebooks/01-big-data-basics/index.qmd)
+What makes data "big", and the technology landscape for handling it.
+
+[Slides]{.badge .text-bg-info} [⏱ TODO]{.module-time}
+:::
+
+::: {.module-card}
+[2]{.module-num}
+
+### [Functional Programming & Parallelism](notebooks/02-functional-programming/index.qmd)
+Functional programming in Python and parallel processing with `multiprocessing`.
+
+[2 notebooks]{.badge .text-bg-primary} [⏱ TODO]{.module-time}
+:::
+
+::: {.module-card}
+[3]{.module-num}
+
+### [Data from the Web](notebooks/03-data-from-the-web/index.qmd)
+Collecting data with web APIs and web scraping.
+
+[3 notebooks]{.badge .text-bg-primary} [⏱ TODO]{.module-time}
+:::
+
+::: {.module-card}
+[4]{.module-num}
+
+### [The Hadoop Ecosystem](notebooks/04-hadoop-ecosystem/index.qmd)
+HDFS, YARN and MapReduce on a Hadoop sandbox.
+
+[Slides]{.badge .text-bg-info} [⏱ TODO]{.module-time}
+:::
+
+::: {.module-card}
+[5]{.module-num}
+
+### [Introduction to Apache Spark](notebooks/05-intro-to-spark/index.qmd)
+Your first Spark application, and Spark's RDD and DataFrame APIs.
+
+[2 notebooks]{.badge .text-bg-primary} [⏱ TODO]{.module-time}
+:::
+
+::: {.module-card}
+[6]{.module-num}
+
+### [Spark Structured APIs](notebooks/06-spark-structured-apis/index.qmd)
+Data wrangling with Spark DataFrames and schemas.
+
+[3 notebooks]{.badge .text-bg-primary} [⏱ TODO]{.module-time}
+:::
+
+::: {.module-card}
+[7]{.module-num}
+
+### [Machine Learning with Spark](notebooks/07-ml-with-spark/index.qmd)
+Model training at scale with scikit-learn and Spark MLlib.
+
+[1 notebook]{.badge .text-bg-primary} [⏱ TODO]{.module-time}
+:::
+
+:::

@@ -1,0 +1,79 @@
+---
+title: "Module 6: Spark Structured APIs"
+---
+
+## Overview
+
+Data wrangling with Spark's structured APIs. The module describes the household dataset used in the exercises, then covers creating DataFrames, defining schemas, and common DataFrame transformations.
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** check this overview and add an estimated time for the module.
+:::
+
+## Learning objectives
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add 3–5 learning objectives.
+:::
+
+## Before class
+
+Make sure PySpark works on your machine: follow [Setup](../../setup.qmd) and run the test in [PySpark setup](../../pyspark-setup.qmd#test-your-installation).
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** list prerequisites and readings.
+:::
+
+## Lecture slides
+
+[Open the slides (Google Slides)](https://docs.google.com/presentation/d/1MOybfSeofcYoVW82oFiywLs1nulV_vPm/edit?usp=sharing){.btn .btn-primary}
+
+## Hands-on
+
+::: {.callout-important}
+## Common error: Java version
+Spark notebooks fail with `UnsupportedClassVersionError` or `Java gateway process exited` when Java is
+missing or too old. PySpark 4 needs **Java 17 or later**. See
+[PySpark setup → Troubleshooting](../../pyspark-setup.qmd#troubleshooting).
+:::
+
+::: {.nb-grid}
+::: {.nb-card}
+### Description of the Household Dataset
+The census-style household dataset used in this module's exercises.
+
+[View](dataset-description-hh-data.ipynb){.btn .btn-sm .btn-primary}
+[Open in Colab](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/06-spark-structured-apis/dataset-description-hh-data.ipynb){.btn .btn-sm .btn-outline-secondary}
+[Download](https://github.com/worldbank/BDA-with-Python/raw/main/notebooks/06-spark-structured-apis/dataset-description-hh-data.ipynb){.btn .btn-sm .btn-outline-secondary}
+:::
+
+::: {.nb-card}
+### Spark Structured APIs
+Create DataFrames, define schemas, and compare loading with and without a schema.
+
+[View](spark-structured-apis.ipynb){.btn .btn-sm .btn-primary}
+[Open in Colab](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/06-spark-structured-apis/spark-structured-apis.ipynb){.btn .btn-sm .btn-outline-secondary}
+[Download](https://github.com/worldbank/BDA-with-Python/raw/main/notebooks/06-spark-structured-apis/spark-structured-apis.ipynb){.btn .btn-sm .btn-outline-secondary}
+:::
+
+::: {.nb-card}
+### Working with Spark DataFrames
+Schemas, manipulating columns, filtering, grouping, user-defined functions, and converting to pandas and RDDs.
+
+[View](working-with-spark-dataframes.ipynb){.btn .btn-sm .btn-primary}
+[Open in Colab](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/06-spark-structured-apis/working-with-spark-dataframes.ipynb){.btn .btn-sm .btn-outline-secondary}
+[Download](https://github.com/worldbank/BDA-with-Python/raw/main/notebooks/06-spark-structured-apis/working-with-spark-dataframes.ipynb){.btn .btn-sm .btn-outline-secondary}
+:::
+:::
+
+## Exercises
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add exercises or check-your-understanding questions.
+:::
+
+## Further reading
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add further reading.
+:::

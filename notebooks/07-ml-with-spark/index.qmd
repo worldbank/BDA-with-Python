@@ -1,0 +1,61 @@
+---
+title: "Module 7: Machine Learning with Spark"
+---
+
+## Overview
+
+What happens to model training as data grows. The module times scikit-learn on a large dataset, then trains models with Spark MLlib.
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** check this overview and add an estimated time for the module.
+:::
+
+## Learning objectives
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add 3–5 learning objectives.
+:::
+
+## Before class
+
+Make sure PySpark works on your machine: follow [Setup](../../setup.qmd) and run the test in [PySpark setup](../../pyspark-setup.qmd#test-your-installation).
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** list prerequisites and readings.
+:::
+
+## Lecture slides
+
+[Open the slides (Google Slides)](https://docs.google.com/presentation/d/1NatQPcIn6MwhScUIrlOEfsG9UtfTnUlw/edit?usp=sharing){.btn .btn-primary}
+
+## Hands-on
+
+::: {.callout-important}
+## Common error: Java version
+Spark notebooks fail with `UnsupportedClassVersionError` or `Java gateway process exited` when Java is
+missing or too old. PySpark 4 needs **Java 17 or later**. See
+[PySpark setup → Troubleshooting](../../pyspark-setup.qmd#troubleshooting).
+:::
+
+::: {.nb-grid}
+::: {.nb-card}
+### ML with Large Datasets
+Training time with scikit-learn as data grows, then random forests with Spark MLlib.
+
+[View](ml-with-large-datasets.ipynb){.btn .btn-sm .btn-primary}
+[Open in Colab](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/07-ml-with-spark/ml-with-large-datasets.ipynb){.btn .btn-sm .btn-outline-secondary}
+[Download](https://github.com/worldbank/BDA-with-Python/raw/main/notebooks/07-ml-with-spark/ml-with-large-datasets.ipynb){.btn .btn-sm .btn-outline-secondary}
+:::
+:::
+
+## Exercises
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add exercises or check-your-understanding questions.
+:::
+
+## Further reading
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add further reading.
+:::

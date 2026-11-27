@@ -3,5 +3,55 @@ title: "Module 0: Introduction to Python"
 ---
 
 ::: {.callout-note}
-Notebooks coming soon.
+## Notebooks coming soon
+The hands-on notebooks for this module are not available yet.
+:::
+
+## Overview
+
+A refresher on the Python you need for the rest of the course: core syntax, data structures, functions, and working with data in pandas.
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** check this overview and add an estimated time for the module.
+:::
+
+## Learning objectives
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add 3–5 learning objectives.
+:::
+
+## Before class
+
+Install the course environment by following [Setup](../../setup.qmd).
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** list prerequisites and readings.
+:::
+
+## Lecture slides
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add slides for this module.
+:::
+
+## Hands-on
+
+Until the notebooks are ready, use one of these Python refreshers:
+
+- [The official Python tutorial](https://docs.python.org/3/tutorial/)
+- [Kaggle Learn: Python](https://www.kaggle.com/learn/python)
+- [Software Carpentry: Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/)
+- [Python Data Science Handbook (Jake VanderPlas)](https://jakevdp.github.io/PythonDataScienceHandbook/)
+
+## Exercises
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add exercises or check-your-understanding questions.
+:::
+
+## Further reading
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add further reading.
 :::

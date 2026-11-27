@@ -1,0 +1,66 @@
+---
+title: "Module 2: Functional Programming & Parallelism"
+---
+
+## Overview
+
+Big data frameworks such as Apache Spark are built on functional programming, because functional code is easy to parallelise. This module covers the functional programming basics you need in Python, then uses the built-in `multiprocessing` library to speed up CPU-bound and I/O-bound work.
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** check this overview and add an estimated time for the module.
+:::
+
+## Learning objectives
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add 3–5 learning objectives.
+:::
+
+## Before class
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** list prerequisites and readings.
+:::
+
+## Lecture slides
+
+[Open the slides (Google Slides)](https://docs.google.com/presentation/d/1MS06NU7eB8-H0PoPKy5o1mP9ipC3oaLQ/edit?usp=sharing){.btn .btn-primary}
+
+## Hands-on
+
+::: {.nb-grid}
+::: {.nb-card}
+### Functional Programming
+Functions as first-class citizens, anonymous functions, and `map`, `filter` and `reduce`.
+
+[View](functional-programming.ipynb){.btn .btn-sm .btn-primary}
+[Open in Colab](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/02-functional-programming/functional-programming.ipynb){.btn .btn-sm .btn-outline-secondary}
+[Download](https://github.com/worldbank/BDA-with-Python/raw/main/notebooks/02-functional-programming/functional-programming.ipynb){.btn .btn-sm .btn-outline-secondary}
+:::
+
+::: {.nb-card}
+### Parallel Processing in Python
+Reading large files in chunks, and parallelising work with `multiprocessing`.
+
+[View](intro-to-parallelism-in-python.ipynb){.btn .btn-sm .btn-primary}
+[Open in Colab](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/02-functional-programming/intro-to-parallelism-in-python.ipynb){.btn .btn-sm .btn-outline-secondary}
+[Download](https://github.com/worldbank/BDA-with-Python/raw/main/notebooks/02-functional-programming/intro-to-parallelism-in-python.ipynb){.btn .btn-sm .btn-outline-secondary}
+:::
+:::
+
+**Scripts** (run from a terminal):
+
+- [`intro-to-parallelism-in-python-cpu.py`](https://github.com/worldbank/BDA-with-Python/blob/main/notebooks/02-functional-programming/intro-to-parallelism-in-python-cpu.py): Sequential vs. parallel timing for a CPU-bound task.
+- [`intro-to-parallelism-in-python-io.py`](https://github.com/worldbank/BDA-with-Python/blob/main/notebooks/02-functional-programming/intro-to-parallelism-in-python-io.py): Speeding up an I/O-bound task.
+
+## Exercises
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add exercises or check-your-understanding questions.
+:::
+
+## Further reading
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add further reading.
+:::

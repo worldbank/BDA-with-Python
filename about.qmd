@@ -1,0 +1,36 @@
+---
+title: "About"
+sidebar: false
+---
+
+## Instructor
+
+**Dunstan Matekenya**
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add a short bio.
+:::
+
+## Past iterations
+
+| Year | Where | Programme |
+|:--|:--|:--|
+| 2022 | African Institute for Mathematical Sciences (AIMS), Rwanda | MSc in Mathematical Sciences (Data Science stream) |
+| 2023 | African Institute for Mathematical Sciences (AIMS), Rwanda | MSc in Mathematical Sciences (Data Science stream) |
+
+For more about the programme, see the [AIMS website](https://aims.ac.rw/structured-masters-program/).
+
+## Contact
+
+For questions about the course content:
+
+- dmatekenya@gmail.com
+- dmatekenya@worldbankgroup.org
+
+To report an error on this site, use the **Report an issue** link on any page, or open an issue on
+[GitHub](https://github.com/worldbank/BDA-with-Python/issues).
+
+## License
+
+Course content is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), and code
+under the [MIT License](https://github.com/worldbank/BDA-with-Python/blob/main/LICENSE).

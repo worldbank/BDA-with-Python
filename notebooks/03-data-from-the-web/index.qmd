@@ -1,0 +1,70 @@
+---
+title: "Module 3: Data from the Web"
+---
+
+## Overview
+
+Much of the data used in practice comes from the web. This module shows how to collect it with Python: calling web APIs, scraping HTML pages, and downloading text from news sites and Wikipedia.
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** check this overview and add an estimated time for the module.
+:::
+
+## Learning objectives
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add 3–5 learning objectives.
+:::
+
+## Before class
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** list prerequisites and readings.
+:::
+
+## Lecture slides
+
+[Open the slides (Google Slides)](https://docs.google.com/presentation/d/1NTs8EcxknabeTcgOWSua1ziwa6-RdrO_/edit?usp=sharing){.btn .btn-primary}
+
+## Hands-on
+
+::: {.nb-grid}
+::: {.nb-card}
+### Introduction to Using APIs
+Request and parse JSON from the Open Notify, OpenWeather and World Bank APIs.
+
+[View](intro-to-apis.ipynb){.btn .btn-sm .btn-primary}
+[Open in Colab](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/03-data-from-the-web/intro-to-apis.ipynb){.btn .btn-sm .btn-outline-secondary}
+[Download](https://github.com/worldbank/BDA-with-Python/raw/main/notebooks/03-data-from-the-web/intro-to-apis.ipynb){.btn .btn-sm .btn-outline-secondary}
+:::
+
+::: {.nb-card}
+### Web Scraping 101
+Scrape a race-results table with `requests` and BeautifulSoup and save it as CSV.
+
+[View](intro-to-web-scraping.ipynb){.btn .btn-sm .btn-primary}
+[Open in Colab](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/03-data-from-the-web/intro-to-web-scraping.ipynb){.btn .btn-sm .btn-outline-secondary}
+[Download](https://github.com/worldbank/BDA-with-Python/raw/main/notebooks/03-data-from-the-web/intro-to-web-scraping.ipynb){.btn .btn-sm .btn-outline-secondary}
+:::
+
+::: {.nb-card}
+### Collecting Text Data from the Web
+Scrape news articles and download Wikipedia pages for a list of countries.
+
+[View](wiki-pages.ipynb){.btn .btn-sm .btn-primary}
+[Open in Colab](https://colab.research.google.com/github/worldbank/BDA-with-Python/blob/main/notebooks/03-data-from-the-web/wiki-pages.ipynb){.btn .btn-sm .btn-outline-secondary}
+[Download](https://github.com/worldbank/BDA-with-Python/raw/main/notebooks/03-data-from-the-web/wiki-pages.ipynb){.btn .btn-sm .btn-outline-secondary}
+:::
+:::
+
+## Exercises
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add exercises or check-your-understanding questions.
+:::
+
+## Further reading
+
+::: {.callout-warning appearance="minimal"}
+**TODO (instructor):** add further reading.
+:::
